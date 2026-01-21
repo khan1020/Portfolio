@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #10b981;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #10b981;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Expense Tracker</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    Track where your money goes. Visualize spending with charts.
+                    Because knowing is the first step to fixing.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, MySQL, Chart.js</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~20 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/expenses/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Try Demo
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/expenses.svg" alt="Expense Tracker" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="story-section">
+                    <h3><i class="fas fa-wallet"></i> Why I Built This</h3>
+                    <p>
+                        I was using a spreadsheet to track expenses. It worked, but I wanted
+                        automatic charts and easier data entry. This was my solution.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        The key insight: seeing a pie chart of where money goes is way more
+                        impactful than reading rows of numbers.
+                    </p>
+                </div>
+
+                <h2>Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-plus-circle"></i> Add Transactions</h4>
+                        <p>Income or expense. Amount, category, date, optional note.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-chart-pie"></i> Category Breakdown</h4>
+                        <p>Pie chart showing spending by category. Instantly see where money goes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-calculator"></i> Balance Tracking</h4>
+                        <p>Running balance updates automatically. Color-coded: green good, red bad.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-filter"></i> Date Filtering</h4>
+                        <p>View this week, this month, or custom date ranges.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">The Chart Data Query</h3>
+                <p>Aggregating expenses by category for the pie chart:</p>
+
+                <div class="code-snippet">
+                    $stmt = $pdo->prepare(<span style="color:#34d399">"
+                        SELECT category, SUM(amount) as total
+                        FROM transactions
+                        WHERE type = 'expense'
+                        AND created_at >= ?
+                        GROUP BY category
+                        ORDER BY total DESC
+                        "</span>);
+                    $stmt->execute([$start_date]);
+                    $categories = $stmt->fetchAll();
+                </div>
+
+                <h3 style="margin-top: 50px;">What I Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>💰 Visualization changes behavior</h4>
+                    <p>Seeing "Food: 45%" made me realize I was eating out too much. Numbers in a table wouldn't have
+                        hit the same.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>💰 Categories should be limited</h4>
+                    <p>Too many categories makes the chart useless. 5-8 categories is the sweet spot.</p>
+                </div>
+
+                <blockquote>
+                    "The best personal tools are the ones you actually use. This is on my browser bookmarks bar."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Chart.js</span>
+                        <span class="skill-tag">Date Aggregation</span>
+                        <span class="skill-tag">Responsive CSS</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/expenses/index.php" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fas fa-receipt"></i> Track Expenses
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. My coffee spending is... classified. ☕</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

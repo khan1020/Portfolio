@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #10b981;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #10b981;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+
+        .db-schema {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Task Management System</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    I built this because I was tired of messy to-do apps. I wanted something clean,
+                    fast, and actually useful. Complete CRUD with categories, priorities, and filters.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, MySQL, JavaScript</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~35 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/tasks/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Try Live Demo
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/tasks.svg" alt="Task Manager" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="story-section">
+                    <h3><i class="fas fa-check-circle"></i> Why Another To-Do App?</h3>
+                    <p>
+                        I know, I know. "The world doesn't need another to-do app." But here's the thing —
+                        building a task manager is the perfect way to learn CRUD operations properly.
+                        Every feature teaches you something: filtering teaches SQL WHERE clauses,
+                        priorities teach data validation, categories teach foreign key relationships.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Plus, I actually use this one. It's on my localhost, and I track my learning goals with it.
+                    </p>
+                </div>
+
+                <h2>Features That Actually Matter</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-plus-circle"></i> Full CRUD</h4>
+                        <p>Create, read, update, delete. The basics, but done right with proper validation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-tags"></i> Categories</h4>
+                        <p>Organize tasks into custom categories. Color-coded for quick visual scanning.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-flag"></i> Priority Levels</h4>
+                        <p>High, Medium, Low. Sort and filter by priority. High-priority tasks have visual urgency.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-filter"></i> Smart Filtering</h4>
+                        <p>Filter by status, category, priority, or due date. Combine filters for precise views.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-calendar-check"></i> Due Dates</h4>
+                        <p>Set deadlines. Overdue tasks get highlighted. Because accountability matters.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-chart-bar"></i> Statistics</h4>
+                        <p>Dashboard showing completed vs pending, tasks by category, and completion rate.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">Database Design</h3>
+                <p>
+                    I spent a good hour just on the database schema. Getting the relationships right
+                    (tasks → categories) saved me a ton of headaches later:
+                </p>
+
+                <div class="db-schema">
+                    CREATE TABLE categories (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(50) NOT NULL,
+                    color VARCHAR(7) DEFAULT '#3b82f6'
+                    );
+
+                    CREATE TABLE tasks (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    title VARCHAR(200) NOT NULL,
+                    description TEXT,
+                    category_id INT,
+                    priority ENUM('low', 'medium', 'high') DEFAULT 'medium',
+                    due_date DATE,
+                    status ENUM('pending', 'completed') DEFAULT 'pending',
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (category_id) REFERENCES categories(id)
+                    );
+                </div>
+
+                <h3 style="margin-top: 50px;">The Filter Query That Took Forever</h3>
+                <p>
+                    Building the multi-filter functionality was tricky. Users can filter by status AND category
+                    AND priority simultaneously. Here's how I handled it:
+                </p>
+
+                <div class="code-snippet">
+                    <span style="color:#6b7280">// Build dynamic WHERE clause</span>
+                    $where = [];
+                    $params = [];
+
+                    <span style="color:#c084fc">if</span> ($status) {
+                    $where[] = <span style="color:#34d399">"status = ?"</span>;
+                    $params[] = $status;
+                    }
+                    <span style="color:#c084fc">if</span> ($category_id) {
+                    $where[] = <span style="color:#34d399">"category_id = ?"</span>;
+                    $params[] = $category_id;
+                    }
+                    <span style="color:#c084fc">if</span> ($priority) {
+                    $where[] = <span style="color:#34d399">"priority = ?"</span>;
+                    $params[] = $priority;
+                    }
+
+                    $sql = <span style="color:#34d399">"SELECT * FROM tasks"</span>;
+                    <span style="color:#c084fc">if</span> (count($where) > 0) {
+                    $sql .= <span style="color:#34d399">" WHERE "</span> . implode(<span style="color:#34d399">" AND
+                        "</span>, $where);
+                    }
+                </div>
+
+                <h3 style="margin-top: 50px;">Lessons Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>✅ ENUM is underrated</h4>
+                    <p>For fields with fixed options (status, priority), ENUM in MySQL is perfect. It enforces valid
+                        values at the database level.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>✅ Foreign keys save lives</h4>
+                    <p>When I added ON DELETE CASCADE, accidentally deleting a category also deletes its tasks. Without
+                        it? Orphaned data everywhere.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>✅ JavaScript for interactions, PHP for logic</h4>
+                    <p>The checkbox to mark tasks complete uses AJAX. The page doesn't reload. Small UX wins make apps
+                        feel polished.</p>
+                </div>
+
+                <blockquote>
+                    "CRUD sounds boring until you've built something you actually use every day.
+                    Then it's just... satisfying."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP 7.4+</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">AJAX</span>
+                        <span class="skill-tag">Prepared Statements</span>
+                        <span class="skill-tag">CSS Grid</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/tasks/index.php" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fas fa-tasks"></i> Try the Demo
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. This task manager has 47 completed tasks. I counted.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

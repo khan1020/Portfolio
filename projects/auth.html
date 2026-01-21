@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication System | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .security-note {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #ede9fe;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #8b5cf6;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+
+        .demo-creds {
+            background: #dbeafe;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Authentication System</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    Security-focused login/register system with password hashing, session management,
+                    and password reset flow. The foundation every app needs.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, MySQL, Sessions</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~25 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/auth/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Try Live Demo
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/auth.svg" alt="Authentication System" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="demo-creds">
+                    <strong><i class="fas fa-user"></i> Demo Login:</strong><br>
+                    Username: <code>demo</code> | Password: <code>demo123</code><br>
+                    <small>(Or register your own account!)</small>
+                </div>
+
+                <div class="story-section">
+                    <h3><i class="fas fa-lock"></i> Why Build Auth From Scratch?</h3>
+                    <p>
+                        Most frameworks handle auth for you. Laravel has it built-in. But I wanted to understand
+                        what's actually happening. How does <code>password_hash()</code> work? Why do we use
+                        <code>password_verify()</code> instead of comparing strings? What makes sessions secure?
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Building this from scratch taught me more about security than any tutorial.
+                        I made mistakes (stored plain text passwords once — never again), learned from them,
+                        and now I actually understand what Laravel's Auth facade does under the hood.
+                    </p>
+                </div>
+
+                <h2>Security Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-key"></i> Password Hashing</h4>
+                        <p>Bcrypt hashing with password_hash(). Passwords are never stored in plain text.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-shield-alt"></i> SQL Injection Prevention</h4>
+                        <p>100% prepared statements. Every single database query uses parameter binding.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-user-shield"></i> Session Security</h4>
+                        <p>Regenerated session IDs on login. HTTP-only cookies. Session timeout after inactivity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-envelope"></i> Password Reset</h4>
+                        <p>Token-based reset with expiration. Tokens are single-use and time-limited.</p>
+                    </div>
+                </div>
+
+                <div class="security-note">
+                    <strong><i class="fas fa-exclamation-triangle"></i> Security Note:</strong>
+                    This is a demo system. In production, you'd add: HTTPS enforcement, rate limiting on login attempts,
+                    email verification, CSRF tokens on all forms, and more comprehensive logging.
+                </div>
+
+                <h3 style="margin-top: 50px;">The Password Hash That Changed Everything</h3>
+                <p>
+                    My first version stored passwords like this: <code>md5($password)</code>.
+                    Then I learned about rainbow tables. Then I learned about bcrypt. Now I do it right:
+                </p>
+
+                <div class="code-snippet">
+                    <span style="color:#6b7280">// Registration: Hash the password</span>
+                    $hashed = <span style="color:#60a5fa">password_hash</span>($password, PASSWORD_BCRYPT);
+                    <span style="color:#6b7280">// $hashed looks like: $2y$10$eImiTXuWVxfM37uY4JANjQ...</span>
+
+                    <span style="color:#6b7280">// Login: Verify against stored hash</span>
+                    <span style="color:#c084fc">if</span> (<span
+                        style="color:#60a5fa">password_verify</span>($entered_password, $stored_hash)) {
+                    <span style="color:#6b7280">// Regenerate session to prevent fixation</span>
+                    <span style="color:#60a5fa">session_regenerate_id</span>(<span style="color:#c084fc">true</span>);
+                    $_SESSION[<span style="color:#34d399">'user_id'</span>] = $user[<span
+                        style="color:#34d399">'id'</span>];
+                    $_SESSION[<span style="color:#34d399">'logged_in'</span>] = <span style="color:#c084fc">true</span>;
+                    }
+                </div>
+
+                <h3 style="margin-top: 50px;">Password Reset Flow</h3>
+                <p>
+                    This was surprisingly complex to get right. The token needs to be secure,
+                    expire after use, and be tied to the specific user:
+                </p>
+                <ol style="line-height: 2.2; margin-left: 20px;">
+                    <li>User enters email address</li>
+                    <li>Generate a cryptographically secure token: <code>bin2hex(random_bytes(32))</code></li>
+                    <li>Store hashed token in database with expiration (1 hour)</li>
+                    <li>Send email with reset link containing the token</li>
+                    <li>User clicks link → verify token exists and hasn't expired</li>
+                    <li>User sets new password → delete the used token</li>
+                </ol>
+
+                <h3 style="margin-top: 50px;">Lessons I Learned the Hard Way</h3>
+
+                <div class="lesson-card">
+                    <h4>🔐 Never roll your own crypto</h4>
+                    <p>I thought about implementing my own hashing. Then I read about all the ways that can go wrong.
+                        Use password_hash(). Always.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🔐 Session IDs must be regenerated</h4>
+                    <p>Session fixation attacks are real. Regenerate the session ID whenever privilege level changes
+                        (login, logout, admin access).</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🔐 Timing attacks are a thing</h4>
+                    <p>password_verify() is timing-safe. String comparison (===) is not. Small details like this matter
+                        for security.</p>
+                </div>
+
+                <blockquote>
+                    "Security isn't a feature you add at the end. It's a mindset you have from line one."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP 7.4+</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">password_hash()</span>
+                        <span class="skill-tag">Sessions</span>
+                        <span class="skill-tag">PDO</span>
+                        <span class="skill-tag">Prepared Statements</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/auth/index.php" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fas fa-sign-in-alt"></i> Try the Demo
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. Passwords hashed with love and bcrypt.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

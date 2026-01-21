@@ -1,0 +1,51 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chatbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#chatbg)"/>
+  
+  <!-- Chat Window -->
+  <rect x="150" y="30" width="600" height="440" fill="#0f172a" rx="20"/>
+  
+  <!-- Header -->
+  <rect x="150" y="30" width="600" height="70" fill="#1e293b" rx="20 20 0 0"/>
+  <circle cx="200" cy="65" r="22" fill="#3b82f6"/>
+  <text x="192" y="72" font-family="Arial" font-size="18" fill="white">💬</text>
+  <text x="235" y="60" font-family="Arial" font-size="18" font-weight="bold" fill="white">ChatRoom</text>
+  <text x="235" y="78" font-family="Arial" font-size="12" fill="#10b981">● 5 online</text>
+  
+  <!-- Messages -->
+  <circle cx="195" cy="140" r="18" fill="#ef4444"/>
+  <text x="189" y="145" font-family="Arial" font-size="12" fill="white">J</text>
+  <rect x="220" y="120" width="280" height="50" fill="#1e293b" rx="12"/>
+  <text x="235" y="140" font-family="Arial" font-size="12" font-weight="bold" fill="#ef4444">John</text>
+  <text x="235" y="158" font-family="Arial" font-size="14" fill="#e2e8f0">Hey everyone! How's it going?</text>
+  
+  <rect x="350" y="190" width="250" height="50" fill="#3b82f6" rx="12"/>
+  <text x="365" y="210" font-family="Arial" font-size="12" font-weight="bold" fill="white">You</text>
+  <text x="365" y="228" font-family="Arial" font-size="14" fill="white">Pretty good! Working on a project</text>
+  <circle cx="690" cy="215" r="18" fill="#3b82f6"/>
+  <text x="684" y="220" font-family="Arial" font-size="12" fill="white">A</text>
+  
+  <circle cx="195" cy="290" r="18" fill="#10b981"/>
+  <text x="189" y="295" font-family="Arial" font-size="12" fill="white">S</text>
+  <rect x="220" y="270" width="320" height="50" fill="#1e293b" rx="12"/>
+  <text x="235" y="290" font-family="Arial" font-size="12" font-weight="bold" fill="#10b981">Sarah</text>
+  <text x="235" y="308" font-family="Arial" font-size="14" fill="#e2e8f0">That sounds interesting! What are you building?</text>
+  
+  <rect x="300" y="340" width="300" height="50" fill="#3b82f6" rx="12"/>
+  <text x="315" y="360" font-family="Arial" font-size="12" font-weight="bold" fill="white">You</text>
+  <text x="315" y="378" font-family="Arial" font-size="14" fill="white">A real-time chat app just like this one! 😄</text>
+  <circle cx="690" cy="365" r="18" fill="#3b82f6"/>
+  
+  <!-- Input -->
+  <rect x="165" y="410" width="500" height="45" fill="#1e293b" rx="22"/>
+  <text x="190" y="438" font-family="Arial" font-size="14" fill="#64748b">Type a message...</text>
+  <circle cx="700" cy="432" r="20" fill="#3b82f6"/>
+  <text x="690" y="440" font-family="Arial" font-size="18" fill="white">➤</text>
+</svg>

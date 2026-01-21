@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #ede9fe;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #8b5cf6;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Interactive Quiz Application</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    Multiple choice quiz with timer, instant feedback, and score tracking.
+                    Built to be extensible for any topic.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, MySQL, JavaScript</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~25 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/quiz/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Take the Quiz
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/quiz.svg" alt="Quiz App" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="story-section">
+                    <h3><i class="fas fa-brain"></i> Making Learning Fun</h3>
+                    <p>
+                        I was studying for an exam and wished I had a quick way to test myself.
+                        Flashcard apps are great, but sometimes you want multiple choice with
+                        a timer to add pressure.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        This quiz app scratches that itch. Questions from a database, random
+                        order, countdown timer, instant feedback on each answer.
+                    </p>
+                </div>
+
+                <h2>Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-random"></i> Randomized Questions</h4>
+                        <p>Questions pulled randomly from database. Different quiz every time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-stopwatch"></i> Countdown Timer</h4>
+                        <p>30 seconds per question. Creates urgency and realism.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-check-double"></i> Instant Feedback</h4>
+                        <p>Green for correct, red for wrong. See the right answer immediately.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-trophy"></i> Score Summary</h4>
+                        <p>Final score with percentage. Leaderboard (coming soon!).</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">The Timer Logic</h3>
+                <p>A countdown that triggers auto-submit when time runs out:</p>
+
+                <div class="code-snippet">
+                    <span style="color:#c084fc">let</span> timeLeft = 30;
+
+                    <span style="color:#c084fc">const</span> timer = setInterval(() => {
+                    timeLeft--;
+                    document.getElementById(<span style="color:#34d399">'timer'</span>).textContent = timeLeft;
+
+                    <span style="color:#c084fc">if</span> (timeLeft <= 5) { document.getElementById(<span
+                        style="color:#34d399">'timer'</span>).classList.add(<span
+                            style="color:#34d399">'urgent'</span>);
+                        }
+
+                        <span style="color:#c084fc">if</span> (timeLeft === 0) {
+                        clearInterval(timer);
+                        selectAnswer(<span style="color:#c084fc">null</span>); <span style="color:#6b7280">// Time's up,
+                            mark as wrong</span>
+                        }
+                        }, 1000);
+                </div>
+
+                <h3 style="margin-top: 50px;">What I Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>🧠 ORDER BY RAND() is slow</h4>
+                    <p>For small datasets it's fine. For thousands of questions, you need a better randomization
+                        strategy.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🧠 Visual feedback is crucial</h4>
+                    <p>The green/red highlighting makes it feel satisfying, even when you get it wrong.</p>
+                </div>
+
+                <blockquote>
+                    "Gamification works. Adding a timer made this 10x more engaging than a simple Q&A format."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">setInterval</span>
+                        <span class="skill-tag">CSS Transitions</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/quiz/index.php" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fas fa-play"></i> Start Quiz
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. My high score is 9/10. Beat it! 🎯</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

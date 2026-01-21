@@ -1,0 +1,47 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f0f2f5"/>
+  
+  <!-- Header -->
+  <rect width="900" height="60" fill="white"/>
+  <text x="40" y="40" font-family="Arial" font-size="22" font-weight="bold" fill="#1877f2">SocialHub</text>
+  <rect x="600" y="15" width="250" height="30" fill="#f0f2f5" rx="15"/>
+  <text x="620" y="35" font-family="Arial" font-size="12" fill="#65676b">Search...</text>
+  
+  <!-- Create Post -->
+  <rect x="200" y="80" width="500" height="100" fill="white" rx="12"/>
+  <circle cx="245" cy="130" r="22" fill="#e4e6eb"/>
+  <rect x="280" y="110" width="380" height="40" fill="#f0f2f5" rx="20"/>
+  <text x="305" y="135" font-family="Arial" font-size="14" fill="#65676b">What's on your mind?</text>
+  
+  <!-- Post 1 -->
+  <rect x="200" y="200" width="500" height="280" fill="white" rx="12"/>
+  <circle cx="245" cy="235" r="22" fill="#1877f2"/>
+  <text x="238" y="242" font-family="Arial" font-size="16" fill="white">J</text>
+  <text x="280" y="228" font-family="Arial" font-size="15" font-weight="bold" fill="#050505">John Doe</text>
+  <text x="280" y="248" font-family="Arial" font-size="12" fill="#65676b">2 hours ago</text>
+  
+  <text x="230" y="285" font-family="Arial" font-size="15" fill="#050505">Just launched my new portfolio website! 🚀</text>
+  <text x="230" y="305" font-family="Arial" font-size="15" fill="#050505">Check it out and let me know what you think!</text>
+  
+  <rect x="220" y="325" width="460" height="100" fill="#dbeafe" rx="8"/>
+  <text x="400" y="385" font-family="Arial" font-size="36" fill="#3b82f6">🎉</text>
+  
+  <text x="230" y="450" font-family="Arial" font-size="13" fill="#65676b">24 likes • 5 comments</text>
+  
+  <rect x="220" y="460" width="460" height="1" fill="#e4e6eb"/>
+  
+  <text x="300" y="485" font-family="Arial" font-size="14" font-weight="bold" fill="#65676b">👍 Like</text>
+  <text x="430" y="485" font-family="Arial" font-size="14" font-weight="bold" fill="#65676b">💬 Comment</text>
+  <text x="570" y="485" font-family="Arial" font-size="14" font-weight="bold" fill="#65676b">↗ Share</text>
+  
+  <!-- Right Sidebar -->
+  <rect x="720" y="80" width="160" height="150" fill="white" rx="12"/>
+  <text x="740" y="110" font-family="Arial" font-size="14" font-weight="bold" fill="#050505">Suggestions</text>
+  <circle cx="755" cy="145" r="18" fill="#10b981"/>
+  <text x="780" y="142" font-family="Arial" font-size="13" fill="#050505">Sarah Dev</text>
+  <text x="780" y="158" font-family="Arial" font-size="11" fill="#65676b">5 mutual</text>
+  <circle cx="755" cy="195" r="18" fill="#f59e0b"/>
+  <text x="780" y="192" font-family="Arial" font-size="13" fill="#050505">Alex Tech</text>
+  <text x="780" y="208" font-family="Arial" font-size="11" fill="#65676b">3 mutual</text>
+</svg>

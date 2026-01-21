@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Page | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-600);
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+        }
+
+        .story-section h3 {
+            color: var(--primary-700);
+            margin-bottom: 20px;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .code-snippet .comment {
+            color: #6b7280;
+        }
+
+        .code-snippet .keyword {
+            color: #c084fc;
+        }
+
+        .code-snippet .string {
+            color: #34d399;
+        }
+
+        .code-snippet .function {
+            color: #60a5fa;
+        }
+
+        .timeline {
+            border-left: 3px solid var(--primary-600);
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary-600);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .timeline-item h4 {
+            margin-bottom: 8px;
+            color: var(--gray-800);
+        }
+
+        .timeline-item p {
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .lesson-card {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        .lesson-card h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-600);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>E-commerce Product Page</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    My first complete e-commerce project — built from scratch with PHP and MySQL.
+                    What started as a simple product page turned into a full-featured shopping experience.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, MySQL, JavaScript</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~40 hours of work</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/shop/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Try Live Demo
+                    </a>
+                    <a href="../demos/shop/admin.php" class="btn btn-secondary">
+                        <i class="fas fa-lock"></i> Admin Panel
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/shop.svg" alt="E-commerce Product Page" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <!-- The Story Behind It -->
+                <div class="story-section">
+                    <h3><i class="fas fa-lightbulb"></i> Why I Built This</h3>
+                    <p>
+                        Honestly? I was tired of seeing "Add to Cart" buttons that didn't actually work in portfolio
+                        demos.
+                        When I was learning web development, every tutorial showed the frontend but skipped the hard
+                        parts —
+                        the database, the session handling, the checkout flow.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        So I decided to build something real. Not just a pretty interface, but a working e-commerce
+                        system
+                        where you can actually add products, manage inventory, and process (simulated) orders.
+                        The kind of project that proves you can build production-ready applications.
+                    </p>
+                </div>
+
+                <h2>What It Does</h2>
+                <p>
+                    This isn't just a product display page. It's a mini e-commerce platform with:
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-store"></i> Product Catalog</h4>
+                        <p>Browse products with filtering by category. Pagination for large catalogs. Clean grid layout.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-shopping-cart"></i> Working Cart</h4>
+                        <p>Add items, update quantities, remove products. Cart persists across page refreshes using
+                            sessions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-credit-card"></i> Checkout Flow</h4>
+                        <p>Complete checkout with customer details form. Order summary and confirmation page.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-cog"></i> Admin Panel</h4>
+                        <p>Add, edit, delete products. Manage categories. View orders. Protected with login.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">The Development Journey</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Day 1-2: Database Design</h4>
+                        <p>Started with the database schema. Products, categories, cart items, orders. Spent a lot of
+                            time getting the relationships right — learned the hard way that good database design saves
+                            hours of debugging later.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Day 3-4: Core Backend</h4>
+                        <p>Built the PHP backend. Product listing, cart logic, session handling. Used prepared
+                            statements everywhere (SQL injection isn't fun to deal with).</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Day 5-6: Frontend & Admin</h4>
+                        <p>Created the responsive UI and admin panel. Added product image uploads, form validation, and
+                            the checkout flow.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Day 7: Polish & Testing</h4>
+                        <p>Fixed bugs, added sample data, tested edge cases (empty cart, out of stock, etc.). Made sure
+                            it actually works when someone visits it.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">Code I'm Proud Of</h3>
+                <p>Here's the cart logic. Simple but effective — handles adding items, preventing duplicates, and
+                    updating quantities:</p>
+
+                <div class="code-snippet">
+                    <span class="comment">// Add to cart with duplicate check</span>
+                    <span class="keyword">if</span> (<span class="function">isset</span>($_POST[<span
+                        class="string">'add_to_cart'</span>])) {
+                    $product_id = (int)$_POST[<span class="string">'product_id'</span>];
+                    $qty = (int)$_POST[<span class="string">'quantity'</span>];
+
+                    <span class="comment">// Check if already in cart</span>
+                    <span class="keyword">if</span> (<span class="function">isset</span>($_SESSION[<span
+                        class="string">'cart'</span>][$product_id])) {
+                    $_SESSION[<span class="string">'cart'</span>][$product_id] += $qty;
+                    } <span class="keyword">else</span> {
+                    $_SESSION[<span class="string">'cart'</span>][$product_id] = $qty;
+                    }
+
+                    <span class="function">header</span>(<span class="string">"Location: cart.php"</span>);
+                    }
+                </div>
+
+                <h3 style="margin-top: 50px;">Lessons Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>💡 Start with the database</h4>
+                    <p>I used to jump straight into the UI. Now I always design the database first. It forces you to
+                        think about data relationships before writing any code.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>💡 Sessions > LocalStorage for carts</h4>
+                    <p>I initially used localStorage, but realized server-side sessions are better for e-commerce.
+                        They're more secure and work across devices.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>💡 Always sanitize user input</h4>
+                    <p>Prepared statements aren't optional. Every single database query uses them. It's extra code, but
+                        it's the only way to be safe.</p>
+                </div>
+
+                <blockquote>
+                    "The best projects are the ones where you learn something new every day. This one taught me that
+                    real-world applications are 20% features and 80% edge cases."
+                </blockquote>
+
+                <h3 style="margin-top: 50px;">What I'd Do Differently</h3>
+                <p>
+                    If I rebuilt this today, I'd probably add:
+                </p>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li><strong>AJAX cart updates</strong> — so the page doesn't reload every time you add something
+                    </li>
+                    <li><strong>Product search</strong> — with autocomplete suggestions</li>
+                    <li><strong>User accounts</strong> — order history, saved addresses</li>
+                    <li><strong>Real payment integration</strong> — Stripe or PayPal (I have this in another project!)
+                    </li>
+                </ul>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP 7.4+</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Session Management</span>
+                        <span class="skill-tag">Prepared Statements</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/shop/index.php" class="btn btn-primary"
+                        style="margin-right: 15px;">
+                        <i class="fas fa-play"></i> Try the Demo
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. Built with ☕ and late nights in Hyderabad.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

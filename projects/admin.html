@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #6366f1;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #e0e7ff;
+            border-left: 4px solid #6366f1;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #6366f1;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Admin Dashboard</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    A comprehensive admin panel with real charts, data tables, and a clean layout.
+                    The kind of dashboard I'd actually want to use every day.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, MySQL, Chart.js</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~25 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/admin/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> View Dashboard
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/admin.svg" alt="Admin Dashboard" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="story-section">
+                    <h3><i class="fas fa-chart-line"></i> Why This Dashboard?</h3>
+                    <p>
+                        Every SaaS product needs an admin panel. I wanted to build one that's reusable —
+                        something I could drop into any project and have instant analytics, user management,
+                        and a professional look.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        The goal was to make data visualization actually useful. Not just pretty charts,
+                        but charts that help you understand trends and make decisions.
+                    </p>
+                </div>
+
+                <h2>Dashboard Components</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-chart-bar"></i> Revenue Charts</h4>
+                        <p>Line charts showing daily/weekly/monthly revenue. Powered by Chart.js with real data.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-tachometer-alt"></i> Stat Cards</h4>
+                        <p>Users, orders, revenue, growth. At-a-glance metrics that update from the database.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-users"></i> User Table</h4>
+                        <p>Sortable, searchable user list. Status indicators, quick actions, pagination.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-bars"></i> Collapsible Sidebar</h4>
+                        <p>Navigation that works on mobile. Collapse to icons on small screens.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">Chart.js Integration</h3>
+                <p>
+                    The charts pull real data from MySQL, format it as JSON, and Chart.js renders it.
+                    Here's the basic flow:
+                </p>
+
+                <div class="code-snippet">
+                    <span style="color:#6b7280">// PHP: Get revenue data for last 7 days</span>
+                    $data = [];
+                    <span style="color:#c084fc">for</span> ($i = 6; $i >= 0; $i--) {
+                    $date = date(<span style="color:#34d399">'Y-m-d'</span>, strtotime(<span style="color:#34d399">"-$i
+                        days"</span>));
+                    $stmt = $pdo->prepare(<span style="color:#34d399">"SELECT SUM(amount) FROM orders WHERE
+                        DATE(created_at) = ?"</span>);
+                    $stmt->execute([$date]);
+                    $data[] = [
+                    <span style="color:#34d399">'date'</span> => date(<span style="color:#34d399">'M d'</span>,
+                    strtotime($date)),
+                    <span style="color:#34d399">'revenue'</span> => $stmt->fetchColumn() ?? 0
+                    ];
+                    }
+                </div>
+
+                <div class="code-snippet">
+                    <span style="color:#6b7280">// JavaScript: Render the chart</span>
+                    <span style="color:#c084fc">new</span> Chart(ctx, {
+                    type: <span style="color:#34d399">'line'</span>,
+                    data: {
+                    labels: chartData.map(d => d.date),
+                    datasets: [{
+                    label: <span style="color:#34d399">'Revenue ($)'</span>,
+                    data: chartData.map(d => d.revenue),
+                    borderColor: <span style="color:#34d399">'#3b82f6'</span>,
+                    tension: <span style="color:#f59e0b">0.3</span>
+                    }]
+                    }
+                    });
+                </div>
+
+                <h3 style="margin-top: 50px;">What I Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>📊 Data aggregation is tricky</h4>
+                    <p>Summing revenue by day, counting users by status — these queries need the right indexes or they
+                        get slow fast.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>📊 Sidebar UX matters</h4>
+                    <p>Nobody wants a sidebar that takes up half the screen on mobile. Collapse it to icons, or make it
+                        overlay.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>📊 Chart.js is incredibly flexible</h4>
+                    <p>Line charts, bar charts, doughnuts — all with the same library. The documentation is excellent
+                        too.</p>
+                </div>
+
+                <blockquote>
+                    "A good dashboard shows you what matters. A great dashboard helps you make decisions."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Chart.js</span>
+                        <span class="skill-tag">CSS Grid</span>
+                        <span class="skill-tag">Responsive Sidebar</span>
+                        <span class="skill-tag">Data Tables</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/admin/index.php" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fas fa-chart-area"></i> Explore Dashboard
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. Graphs made with Chart.js and caffeine.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

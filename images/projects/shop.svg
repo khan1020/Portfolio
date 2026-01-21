@@ -1,0 +1,54 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="header" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1f2937"/>
+      <stop offset="100%" style="stop-color:#374151"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f3f4f6"/>
+  
+  <!-- Header -->
+  <rect width="900" height="60" fill="url(#header)"/>
+  <text x="40" y="38" font-family="Arial" font-size="20" font-weight="bold" fill="white">ShopHub</text>
+  <circle cx="820" cy="30" r="18" fill="#3b82f6"/>
+  <text x="816" y="36" font-family="Arial" font-size="14" fill="white">3</text>
+  
+  <!-- Product Grid -->
+  <rect x="40" y="90" width="260" height="320" fill="white" rx="12" stroke="#e5e7eb"/>
+  <rect x="50" y="100" width="240" height="180" fill="#dbeafe" rx="8"/>
+  <text x="130" y="200" font-family="Arial" font-size="40" fill="#3b82f6">👟</text>
+  <text x="60" y="310" font-family="Arial" font-size="18" font-weight="bold" fill="#1f2937">Nike Air Max</text>
+  <text x="60" y="335" font-family="Arial" font-size="24" font-weight="bold" fill="#3b82f6">$149.99</text>
+  <rect x="60" y="360" width="120" height="36" fill="url(#btn)" rx="6"/>
+  <text x="85" y="384" font-family="Arial" font-size="14" font-weight="bold" fill="white">Add to Cart</text>
+  
+  <rect x="320" y="90" width="260" height="320" fill="white" rx="12" stroke="#e5e7eb"/>
+  <rect x="330" y="100" width="240" height="180" fill="#fef3c7" rx="8"/>
+  <text x="410" y="200" font-family="Arial" font-size="40" fill="#f59e0b">⌚</text>
+  <text x="340" y="310" font-family="Arial" font-size="18" font-weight="bold" fill="#1f2937">Smart Watch Pro</text>
+  <text x="340" y="335" font-family="Arial" font-size="24" font-weight="bold" fill="#3b82f6">$299.00</text>
+  <rect x="340" y="360" width="120" height="36" fill="url(#btn)" rx="6"/>
+  <text x="365" y="384" font-family="Arial" font-size="14" font-weight="bold" fill="white">Add to Cart</text>
+  
+  <rect x="600" y="90" width="260" height="320" fill="white" rx="12" stroke="#e5e7eb"/>
+  <rect x="610" y="100" width="240" height="180" fill="#d1fae5" rx="8"/>
+  <text x="690" y="200" font-family="Arial" font-size="40" fill="#10b981">🎧</text>
+  <text x="620" y="310" font-family="Arial" font-size="18" font-weight="bold" fill="#1f2937">Wireless Headphones</text>
+  <text x="620" y="335" font-family="Arial" font-size="24" font-weight="bold" fill="#3b82f6">$199.99</text>
+  <rect x="620" y="360" width="120" height="36" fill="url(#btn)" rx="6"/>
+  <text x="645" y="384" font-family="Arial" font-size="14" font-weight="bold" fill="white">Add to Cart</text>
+  
+  <!-- Category Filter -->
+  <rect x="40" y="430" width="100" height="35" fill="#3b82f6" rx="6"/>
+  <text x="70" y="453" font-family="Arial" font-size="13" fill="white">All</text>
+  <rect x="150" y="430" width="120" height="35" fill="white" rx="6" stroke="#d1d5db"/>
+  <text x="175" y="453" font-family="Arial" font-size="13" fill="#4b5563">Electronics</text>
+  <rect x="280" y="430" width="100" height="35" fill="white" rx="6" stroke="#d1d5db"/>
+  <text x="305" y="453" font-family="Arial" font-size="13" fill="#4b5563">Fashion</text>
+</svg>

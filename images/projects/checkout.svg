@@ -1,0 +1,45 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paybg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#paybg)"/>
+  
+  <!-- Pricing Cards -->
+  <rect x="80" y="80" width="220" height="340" fill="white" rx="20"/>
+  <text x="155" y="130" font-family="Arial" font-size="20" font-weight="bold" fill="#1f2937">Pro</text>
+  <text x="130" y="190" font-family="Arial" font-size="48" font-weight="bold" fill="#667eea">$29</text>
+  <text x="210" y="185" font-family="Arial" font-size="14" fill="#6b7280">/mo</text>
+  <text x="120" y="230" font-family="Arial" font-size="13" fill="#6b7280">✓ Unlimited projects</text>
+  <text x="120" y="260" font-family="Arial" font-size="13" fill="#6b7280">✓ Priority support</text>
+  <text x="120" y="290" font-family="Arial" font-size="13" fill="#6b7280">✓ Advanced analytics</text>
+  <rect x="110" y="340" width="140" height="45" fill="white" rx="10" stroke="#667eea" stroke-width="2"/>
+  <text x="145" y="370" font-family="Arial" font-size="14" font-weight="bold" fill="#667eea">Select</text>
+  
+  <rect x="340" y="60" width="220" height="380" fill="white" rx="20" stroke="#667eea" stroke-width="3"/>
+  <rect x="395" y="40" width="110" height="28" fill="#667eea" rx="14"/>
+  <text x="413" y="59" font-family="Arial" font-size="12" fill="white">Most Popular</text>
+  <text x="405" y="120" font-family="Arial" font-size="20" font-weight="bold" fill="#1f2937">Team</text>
+  <text x="390" y="180" font-family="Arial" font-size="48" font-weight="bold" fill="#667eea">$79</text>
+  <text x="472" y="175" font-family="Arial" font-size="14" fill="#6b7280">/mo</text>
+  <text x="380" y="220" font-family="Arial" font-size="13" fill="#6b7280">✓ Everything in Pro</text>
+  <text x="380" y="250" font-family="Arial" font-size="13" fill="#6b7280">✓ Team collaboration</text>
+  <text x="380" y="280" font-family="Arial" font-size="13" fill="#6b7280">✓ Admin dashboard</text>
+  <text x="380" y="310" font-family="Arial" font-size="13" fill="#6b7280">✓ API access</text>
+  <rect x="370" y="355" width="160" height="50" fill="#667eea" rx="10"/>
+  <text x="410" y="387" font-family="Arial" font-size="15" font-weight="bold" fill="white">Select Plan</text>
+  
+  <rect x="600" y="80" width="220" height="340" fill="white" rx="20"/>
+  <text x="655" y="130" font-family="Arial" font-size="20" font-weight="bold" fill="#1f2937">Enterprise</text>
+  <text x="650" y="190" font-family="Arial" font-size="48" font-weight="bold" fill="#667eea">$199</text>
+  <text x="755" y="185" font-family="Arial" font-size="14" fill="#6b7280">/mo</text>
+  <text x="640" y="230" font-family="Arial" font-size="13" fill="#6b7280">✓ Everything in Team</text>
+  <text x="640" y="260" font-family="Arial" font-size="13" fill="#6b7280">✓ Custom integrations</text>
+  <text x="640" y="290" font-family="Arial" font-size="13" fill="#6b7280">✓ Dedicated support</text>
+  <rect x="630" y="340" width="140" height="45" fill="white" rx="10" stroke="#667eea" stroke-width="2"/>
+  <text x="665" y="370" font-family="Arial" font-size="14" font-weight="bold" fill="#667eea">Contact</text>
+</svg>

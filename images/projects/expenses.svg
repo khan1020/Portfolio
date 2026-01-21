@@ -1,0 +1,55 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="expensebg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f0fdf4"/>
+  
+  <!-- Header -->
+  <rect width="900" height="80" fill="url(#expensebg)"/>
+  <text x="40" y="50" font-family="Arial" font-size="24" font-weight="bold" fill="white">ExpenseTrack</text>
+  
+  <!-- Stats Cards -->
+  <rect x="40" y="110" width="260" height="100" fill="white" rx="16"/>
+  <text x="60" y="145" font-family="Arial" font-size="14" fill="#6b7280">Income (This Month)</text>
+  <text x="60" y="180" font-family="Arial" font-size="32" font-weight="bold" fill="#10b981">$5,800</text>
+  
+  <rect x="320" y="110" width="260" height="100" fill="white" rx="16"/>
+  <text x="340" y="145" font-family="Arial" font-size="14" fill="#6b7280">Expenses (This Month)</text>
+  <text x="340" y="180" font-family="Arial" font-size="32" font-weight="bold" fill="#ef4444">$2,340</text>
+  
+  <rect x="600" y="110" width="260" height="100" fill="white" rx="16"/>
+  <text x="620" y="145" font-family="Arial" font-size="14" fill="#6b7280">Balance</text>
+  <text x="620" y="180" font-family="Arial" font-size="32" font-weight="bold" fill="#3b82f6">$3,460</text>
+  
+  <!-- Pie Chart -->
+  <rect x="40" y="230" width="350" height="250" fill="white" rx="16"/>
+  <text x="60" y="265" font-family="Arial" font-size="16" font-weight="bold" fill="#1f2937">Spending by Category</text>
+  <circle cx="215" cy="380" r="80" fill="none" stroke="#ef4444" stroke-width="30" stroke-dasharray="126 377"/>
+  <circle cx="215" cy="380" r="80" fill="none" stroke="#f59e0b" stroke-width="30" stroke-dasharray="75 503" stroke-dashoffset="-126"/>
+  <circle cx="215" cy="380" r="80" fill="none" stroke="#3b82f6" stroke-width="30" stroke-dasharray="100 503" stroke-dashoffset="-201"/>
+  <circle cx="215" cy="380" r="80" fill="none" stroke="#8b5cf6" stroke-width="30" stroke-dasharray="75 503" stroke-dashoffset="-301"/>
+  
+  <!-- Transactions -->
+  <rect x="410" y="230" width="450" height="250" fill="white" rx="16"/>
+  <text x="430" y="265" font-family="Arial" font-size="16" font-weight="bold" fill="#1f2937">Recent Transactions</text>
+  
+  <circle cx="450" cy="310" r="18" fill="#d1fae5"/>
+  <text x="480" y="305" font-family="Arial" font-size="14" font-weight="bold" fill="#1f2937">Salary Deposit</text>
+  <text x="480" y="322" font-family="Arial" font-size="12" fill="#6b7280">Jan 22</text>
+  <text x="780" y="312" font-family="Arial" font-size="16" font-weight="bold" fill="#10b981">+$5,000</text>
+  
+  <circle cx="450" cy="365" r="18" fill="#fee2e2"/>
+  <text x="480" y="360" font-family="Arial" font-size="14" font-weight="bold" fill="#1f2937">Grocery Shopping</text>
+  <text x="480" y="377" font-family="Arial" font-size="12" fill="#6b7280">Jan 20</text>
+  <text x="795" y="367" font-family="Arial" font-size="16" font-weight="bold" fill="#ef4444">-$150</text>
+  
+  <circle cx="450" cy="420" r="18" fill="#fee2e2"/>
+  <text x="480" y="415" font-family="Arial" font-size="14" font-weight="bold" fill="#1f2937">Electricity Bill</text>
+  <text x="480" y="432" font-family="Arial" font-size="12" fill="#6b7280">Jan 18</text>
+  <text x="795" y="422" font-family="Arial" font-size="16" font-weight="bold" fill="#ef4444">-$120</text>
+</svg>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #3b82f6;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+            color: white;
+        }
+
+        .story-section h3 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+
+        .story-section p {
+            color: #e2e8f0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+
+        .demo-note {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>OTP Verification System</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    Two-factor authentication with OTP codes. Enter phone, receive code (simulated),
+                    verify, and access. The modern way to secure logins.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, Sessions, JavaScript</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~15 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/otp/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Try OTP Flow
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/otp.svg" alt="OTP Verification" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="demo-note">
+                    <strong><i class="fas fa-info-circle"></i> Demo Mode:</strong>
+                    In this demo, the OTP is shown on screen instead of sent via SMS.
+                    In production, you'd integrate with Twilio or a similar SMS provider.
+                </div>
+
+                <div class="story-section">
+                    <h3><i class="fas fa-mobile-alt"></i> Why OTP?</h3>
+                    <p>
+                        Passwords get stolen. Phishing works. OTP adds a second layer — something
+                        you have (your phone) in addition to something you know (password).
+                    </p>
+                    <p style="margin-top: 15px;">
+                        I built this to understand the OTP flow: generate code, set expiration,
+                        validate input, handle wrong attempts, allow resend with rate limiting.
+                    </p>
+                </div>
+
+                <h2>The Flow</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-phone"></i> Enter Phone</h4>
+                        <p>User enters their phone number to receive OTP.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-paper-plane"></i> Send OTP</h4>
+                        <p>6-digit code generated and "sent" (shown in demo).</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-keyboard"></i> Enter Code</h4>
+                        <p>User types the 6 digits. Auto-advances between boxes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-check-circle"></i> Verify</h4>
+                        <p>System validates code. Grant access or show error.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">Generating Secure OTPs</h3>
+                <p>OTPs need to be random but also short enough to type easily:</p>
+
+                <div class="code-snippet">
+                    <span style="color:#c084fc">function</span> <span style="color:#60a5fa">generateOTP</span>($length =
+                    6) {
+                    <span style="color:#6b7280">// Use cryptographically secure random</span>
+                    <span style="color:#c084fc">return</span> str_pad(
+                    random_int(0, pow(10, $length) - 1),
+                    $length,
+                    <span style="color:#34d399">'0'</span>,
+                    STR_PAD_LEFT
+                    );
+                    }
+
+                    <span style="color:#6b7280">// Store with expiration</span>
+                    $_SESSION[<span style="color:#34d399">'otp'</span>] = [
+                    <span style="color:#34d399">'code'</span> => generateOTP(),
+                    <span style="color:#34d399">'expires'</span> => time() + (5 * 60), <span style="color:#6b7280">// 5
+                        minutes</span>
+                    <span style="color:#34d399">'attempts'</span> => 0
+                    ];
+                </div>
+
+                <h3 style="margin-top: 50px;">The OTP Input UX</h3>
+                <p>6 separate boxes that auto-advance as you type:</p>
+
+                <div class="code-snippet">
+                    <span style="color:#6b7280">// Auto-advance to next input</span>
+                    inputs.forEach((input, index) => {
+                    input.addEventListener(<span style="color:#34d399">'input'</span>, (e) => {
+                    <span style="color:#c084fc">if</span> (e.target.value && index < inputs.length - 1) { inputs[index +
+                        1].focus(); } }); <span style="color:#6b7280">// Handle backspace</span>
+                        input.addEventListener(<span style="color:#34d399">'keydown'</span>, (e) => {
+                        <span style="color:#c084fc">if</span> (e.key === <span style="color:#34d399">'Backspace'</span>
+                        && !e.target.value && index > 0) {
+                        inputs[index - 1].focus();
+                        }
+                        });
+                        });
+                </div>
+
+                <h3 style="margin-top: 50px;">What I Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>🔐 OTPs must expire</h4>
+                    <p>5 minutes is standard. After that, require a new code. Never let OTPs be reused.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🔐 Limit verification attempts</h4>
+                    <p>3 wrong attempts = lock out and require new OTP. Prevents brute forcing a 6-digit code.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🔐 Rate limit resends</h4>
+                    <p>Don't let users spam "resend". 60-second cooldown prevents SMS bombing (and saves money).</p>
+                </div>
+
+                <blockquote>
+                    "The small UX details — auto-advancing inputs, visible countdown, clear errors —
+                    make the difference between frustrating and delightful."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Sessions</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">random_int()</span>
+                        <span class="skill-tag">Rate Limiting</span>
+                        <span class="skill-tag">Twilio-ready</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/otp/index.php" class="btn btn-primary"
+                        style="margin-right: 15px;">
+                        <i class="fas fa-mobile-alt"></i> Try OTP Flow
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. Your second factor is secure here. 🔒</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

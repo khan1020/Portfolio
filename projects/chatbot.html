@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #10b981;
+        }
+
+        .complex-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+            color: white;
+        }
+
+        .story-section h3 {
+            color: #34d399;
+            margin-bottom: 20px;
+        }
+
+        .story-section p {
+            color: #e2e8f0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #10b981;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+
+        .demo-note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <span class="complex-badge"><i class="fas fa-star"></i> Complex Project</span>
+                <h1>AI Chatbot Interface</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    A ChatGPT-style interface with typing effects, conversation history, and
+                    suggested prompts. Ready to connect to any AI API.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>HTML, CSS, JavaScript</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~20 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/chatbot/index.html" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Try Chatbot
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/chatbot.svg" alt="AI Chatbot" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="demo-note">
+                    <strong><i class="fas fa-info-circle"></i> Demo Mode:</strong>
+                    This demo uses pre-defined responses to showcase the interface.
+                    In production, you'd connect it to OpenAI's GPT API or any other LLM service.
+                </div>
+
+                <div class="story-section">
+                    <h3><i class="fas fa-robot"></i> Building an AI Chat Interface</h3>
+                    <p>
+                        ChatGPT changed everything. Suddenly everyone wants an AI chatbot. But building a good
+                        chat interface is harder than it looks — the typing effect, the thinking indicator,
+                        the message history, the keyboard shortcuts.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        I built this as a reusable frontend that can connect to any AI backend.
+                        The goal was to create something that feels as polished as ChatGPT itself.
+                    </p>
+                </div>
+
+                <h2>Interface Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-keyboard"></i> Typing Effect</h4>
+                        <p>Responses appear character by character. Just like ChatGPT. Feels more natural than instant
+                            text.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-spinner"></i> Thinking Indicator</h4>
+                        <p>Animated dots while "thinking". Users know something is happening.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-lightbulb"></i> Suggested Prompts</h4>
+                        <p>Starter questions for new users. Click to send. Great for onboarding.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-history"></i> Chat History</h4>
+                        <p>Messages persist during session. Scroll up to see previous exchanges.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">The Typing Effect</h3>
+                <p>
+                    This is what makes chat interfaces feel alive. Here's the core logic:
+                </p>
+
+                <div class="code-snippet">
+                    <span style="color:#c084fc">function</span> <span style="color:#60a5fa">typeMessage</span>(text,
+                    element) {
+                    <span style="color:#c084fc">let</span> index = 0;
+                    <span style="color:#c084fc">const</span> speed = 20; <span style="color:#6b7280">// ms per
+                        character</span>
+
+                    <span style="color:#c084fc">function</span> type() {
+                    <span style="color:#c084fc">if</span> (index < text.length) { element.textContent
+                        +=text.charAt(index); index++; setTimeout(type, speed); } <span style="color:#c084fc">
+                        else</span> {
+                        <span style="color:#6b7280">// Typing finished - enable input</span>
+                        enableInput();
+                        }
+                        }
+
+                        type();
+                        }
+                </div>
+
+                <h3 style="margin-top: 50px;">Connecting to a Real AI</h3>
+                <p>
+                    The demo uses mock responses, but switching to a real API is just changing one function:
+                </p>
+
+                <div class="code-snippet">
+                    <span style="color:#c084fc">async function</span> <span
+                        style="color:#60a5fa">getAIResponse</span>(message) {
+                    <span style="color:#6b7280">// Replace with actual API call</span>
+                    <span style="color:#c084fc">const</span> response = <span style="color:#c084fc">await</span>
+                    fetch(<span style="color:#34d399">'https://api.openai.com/v1/chat/completions'</span>, {
+                    method: <span style="color:#34d399">'POST'</span>,
+                    headers: {
+                    <span style="color:#34d399">'Authorization'</span>: <span style="color:#34d399">`Bearer
+                        ${API_KEY}`</span>,
+                    <span style="color:#34d399">'Content-Type'</span>: <span
+                        style="color:#34d399">'application/json'</span>
+                    },
+                    body: JSON.stringify({
+                    model: <span style="color:#34d399">'gpt-3.5-turbo'</span>,
+                    messages: [{ role: <span style="color:#34d399">'user'</span>, content: message }]
+                    })
+                    });
+                    <span style="color:#c084fc">return</span> response.json();
+                    }
+                </div>
+
+                <h3 style="margin-top: 50px;">What I Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>🤖 UI polish matters for AI interfaces</h4>
+                    <p>Users expect ChatGPT-level smoothness. Janky interfaces make the AI feel dumber, even if it's the
+                        same model.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🤖 Disable input while responding</h4>
+                    <p>If users can type while the AI is "thinking", they might send duplicate messages. Disable the
+                        input until the response is complete.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🤖 Suggested prompts reduce friction</h4>
+                    <p>New users don't know what to ask. Giving them clickable suggestions increases engagement
+                        dramatically.</p>
+                </div>
+
+                <blockquote>
+                    "The best AI interface disappears. You should be thinking about the conversation, not the
+                    interface."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Fetch API</span>
+                        <span class="skill-tag">CSS Animations</span>
+                        <span class="skill-tag">OpenAI-ready</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/chatbot/index.html" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fas fa-robot"></i> Chat with Bot
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. No AI was harmed in the making of this interface.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

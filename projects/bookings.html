@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System | Afzal Khan</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 60px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #d4a574;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #faf5f0 0%, #f5ebe0 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin: 40px 0;
+        }
+
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .lesson-card {
+            background: #fef7f0;
+            border-left: 4px solid #d4a574;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #d4a574;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-600);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html" style="color: var(--gray-900);">Afzal<span>.</span></a></div>
+            <a href="../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Restaurant Booking System</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); max-width: 700px; margin: 20px auto;">
+                    A time-slot reservation system with availability checking, booking confirmations,
+                    and admin management. Built for real-world restaurant use.
+                </p>
+                <div class="project-meta">
+                    <div class="meta-item"><i class="fas fa-code"></i><span>PHP, MySQL, JavaScript</span></div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>January 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>~30 hours</span></div>
+                </div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <a href="../demos/bookings/index.php" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Book a Table
+                    </a>
+                </div>
+            </div>
+
+            <img src="../images/projects/bookings.svg" alt="Booking System" class="project-screenshot">
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div class="story-section">
+                    <h3><i class="fas fa-utensils"></i> The Problem I Solved</h3>
+                    <p>
+                        A friend runs a small restaurant. They were taking reservations over WhatsApp.
+                        Double bookings happened. Time slots were unclear. Customers got frustrated.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        I built them this system. Now customers see available slots, pick one,
+                        fill out their details, and get confirmation. The restaurant sees all bookings in one place.
+                    </p>
+                </div>
+
+                <h2>How It Works</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-calendar-alt"></i> Date Selection</h4>
+                        <p>Pick a date. System shows only available time slots.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-clock"></i> Time Slots</h4>
+                        <p>Pre-defined slots (12PM, 1PM, 2PM...). Each slot has limited capacity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-users"></i> Party Size</h4>
+                        <p>Select number of guests. System checks if slot can accommodate.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-check-circle"></i> Confirmation</h4>
+                        <p>Booking saved to database. Confirmation number generated.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 50px;">The Availability Logic</h3>
+                <p>This was the trickiest part — checking if a slot can handle a booking:</p>
+
+                <div class="code-snippet">
+                    <span style="color:#c084fc">function</span> <span
+                        style="color:#60a5fa">getAvailableSlots</span>($date) {
+                    $stmt = $pdo->prepare(<span style="color:#34d399">"
+                        SELECT time_slot, SUM(party_size) as booked
+                        FROM bookings
+                        WHERE booking_date = ?
+                        GROUP BY time_slot
+                        "</span>);
+                    $stmt->execute([$date]);
+                    $booked = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+
+                    $available = [];
+                    <span style="color:#c084fc">foreach</span> ($all_slots <span style="color:#c084fc">as</span> $slot)
+                    {
+                    $capacity_left = MAX_CAPACITY - ($booked[$slot] ?? 0);
+                    <span style="color:#c084fc">if</span> ($capacity_left > 0) {
+                    $available[$slot] = $capacity_left;
+                    }
+                    }
+                    <span style="color:#c084fc">return</span> $available;
+                    }
+                </div>
+
+                <h3 style="margin-top: 50px;">What I Learned</h3>
+
+                <div class="lesson-card">
+                    <h4>🍽️ Race conditions are real</h4>
+                    <p>Two people booking the last slot at the same moment? I added transaction locks to prevent
+                        overbooking.</p>
+                </div>
+
+                <div class="lesson-card">
+                    <h4>🍽️ Users need immediate feedback</h4>
+                    <p>Showing "2 seats left" on a slot creates urgency and prevents frustration when their booking
+                        fails.</p>
+                </div>
+
+                <blockquote>
+                    "Building for a real business taught me that edge cases aren't edge cases — they're everyday
+                    problems."
+                </blockquote>
+
+                <div
+                    style="background: var(--gray-50); padding: 30px; border-radius: var(--radius-lg); margin: 40px 0;">
+                    <h3>Tech Stack</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Date Handling</span>
+                        <span class="skill-tag">Transaction Locks</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="../demos/bookings/index.php" class="btn btn-primary" style="margin-right: 15px;">
+                        <i class="fas fa-calendar-check"></i> Make a Booking
+                    </a>
+                    <a href="../index.html#projects" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> All Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">Afzal Khan</a>. Table for two? 🍽️</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+

@@ -1,0 +1,56 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="otpbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="otpbtn" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#otpbg)"/>
+  
+  <!-- Card -->
+  <rect x="250" y="60" width="400" height="380" fill="white" rx="24"/>
+  
+  <!-- Icon -->
+  <circle cx="450" cy="120" r="40" fill="url(#otpbtn)"/>
+  <text x="433" y="132" font-family="Arial" font-size="32" fill="white">🔐</text>
+  
+  <text x="370" y="180" font-family="Arial" font-size="24" font-weight="bold" fill="#0f172a">Enter OTP</text>
+  <text x="335" y="205" font-family="Arial" font-size="13" fill="#6b7280">We sent a code to +92 340 ****189</text>
+  
+  <!-- OTP Boxes -->
+  <rect x="290" y="230" width="55" height="65" fill="#f9fafb" rx="12" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="305" y="275" font-family="Arial" font-size="28" font-weight="bold" fill="#0f172a">4</text>
+  
+  <rect x="355" y="230" width="55" height="65" fill="#f9fafb" rx="12" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="370" y="275" font-family="Arial" font-size="28" font-weight="bold" fill="#0f172a">7</text>
+  
+  <rect x="420" y="230" width="55" height="65" fill="#f0f9ff" rx="12" stroke="#3b82f6" stroke-width="2"/>
+  <text x="435" y="275" font-family="Arial" font-size="28" font-weight="bold" fill="#3b82f6">2</text>
+  
+  <rect x="485" y="230" width="55" height="65" fill="#f9fafb" rx="12" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="500" y="275" font-family="Arial" font-size="28" font-weight="bold" fill="#0f172a">9</text>
+  
+  <rect x="550" y="230" width="55" height="65" fill="#f9fafb" rx="12" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="565" y="275" font-family="Arial" font-size="28" font-weight="bold" fill="#0f172a">_</text>
+  
+  <!-- Timer -->
+  <text x="395" y="330" font-family="Arial" font-size="14" fill="#ef4444">Expires in: 4:32</text>
+  
+  <!-- Button -->
+  <rect x="290" y="360" width="320" height="50" fill="url(#otpbtn)" rx="12"/>
+  <text x="390" y="392" font-family="Arial" font-size="16" font-weight="bold" fill="white">Verify OTP</text>
+  
+  <!-- Resend -->
+  <text x="345" y="435" font-family="Arial" font-size="13" fill="#6b7280">Didn't receive code?</text>
+  <text x="490" y="435" font-family="Arial" font-size="13" font-weight="bold" fill="#3b82f6">Resend</text>
+  
+  <!-- Decorative -->
+  <circle cx="100" cy="100" r="50" fill="white" opacity="0.05"/>
+  <circle cx="800" cy="400" r="80" fill="white" opacity="0.05"/>
+</svg>

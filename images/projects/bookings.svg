@@ -1,0 +1,59 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="500" fill="#faf5f0"/>
+  
+  <!-- Header -->
+  <rect width="900" height="80" fill="#1a1a2e"/>
+  <text x="370" y="50" font-family="Georgia" font-size="28" font-weight="bold" fill="white">TableBook</text>
+  <text x="350" y="70" font-family="Arial" font-size="12" fill="#d4a574">Reserve your perfect dining experience</text>
+  
+  <!-- Date Selector -->
+  <text x="50" y="115" font-family="Arial" font-size="16" font-weight="bold" fill="#1a1a2e">Select a Date</text>
+  <rect x="50" y="130" width="70" height="70" fill="#d4a574" rx="12"/>
+  <text x="70" y="158" font-family="Arial" font-size="12" fill="white">Wed</text>
+  <text x="70" y="182" font-family="Arial" font-size="22" font-weight="bold" fill="white">22</text>
+  
+  <rect x="130" y="130" width="70" height="70" fill="white" rx="12" stroke="#e5e7eb"/>
+  <text x="150" y="158" font-family="Arial" font-size="12" fill="#6b7280">Thu</text>
+  <text x="150" y="182" font-family="Arial" font-size="22" font-weight="bold" fill="#1a1a2e">23</text>
+  
+  <rect x="210" y="130" width="70" height="70" fill="white" rx="12" stroke="#e5e7eb"/>
+  <text x="235" y="158" font-family="Arial" font-size="12" fill="#6b7280">Fri</text>
+  <text x="230" y="182" font-family="Arial" font-size="22" font-weight="bold" fill="#1a1a2e">24</text>
+  
+  <rect x="290" y="130" width="70" height="70" fill="white" rx="12" stroke="#e5e7eb"/>
+  <text x="310" y="158" font-family="Arial" font-size="12" fill="#6b7280">Sat</text>
+  <text x="310" y="182" font-family="Arial" font-size="22" font-weight="bold" fill="#1a1a2e">25</text>
+  
+  <!-- Time Slots -->
+  <text x="50" y="240" font-family="Arial" font-size="16" font-weight="bold" fill="#1a1a2e">Available Times</text>
+  
+  <rect x="50" y="260" width="130" height="80" fill="white" rx="12" stroke="#d4a574" stroke-width="2"/>
+  <text x="80" y="300" font-family="Arial" font-size="22" font-weight="bold" fill="#1a1a2e">12:00</text>
+  <text x="75" y="325" font-family="Arial" font-size="12" fill="#10b981">4 seats left</text>
+  
+  <rect x="195" y="260" width="130" height="80" fill="white" rx="12" stroke="#e5e7eb"/>
+  <text x="225" y="300" font-family="Arial" font-size="22" font-weight="bold" fill="#1a1a2e">1:00</text>
+  <text x="220" y="325" font-family="Arial" font-size="12" fill="#10b981">4 seats left</text>
+  
+  <rect x="340" y="260" width="130" height="80" fill="white" rx="12" stroke="#e5e7eb"/>
+  <text x="370" y="300" font-family="Arial" font-size="22" font-weight="bold" fill="#1a1a2e">6:00</text>
+  <text x="365" y="325" font-family="Arial" font-size="12" fill="#f59e0b">2 seats left</text>
+  
+  <!-- Booking Form -->
+  <rect x="520" y="110" width="340" height="370" fill="white" rx="16"/>
+  <text x="550" y="150" font-family="Arial" font-size="18" font-weight="bold" fill="#1a1a2e">Complete Reservation</text>
+  
+  <text x="550" y="190" font-family="Arial" font-size="12" fill="#6b7280">Full Name</text>
+  <rect x="550" y="200" width="280" height="40" fill="#f9fafb" rx="8" stroke="#e5e7eb"/>
+  
+  <text x="550" y="260" font-family="Arial" font-size="12" fill="#6b7280">Party Size</text>
+  <rect x="550" y="270" width="280" height="40" fill="#f9fafb" rx="8" stroke="#e5e7eb"/>
+  <text x="570" y="296" font-family="Arial" font-size="14" fill="#1a1a2e">2 Guests</text>
+  
+  <text x="550" y="330" font-family="Arial" font-size="12" fill="#6b7280">Email</text>
+  <rect x="550" y="340" width="280" height="40" fill="#f9fafb" rx="8" stroke="#e5e7eb"/>
+  
+  <rect x="550" y="410" width="280" height="50" fill="#d4a574" rx="10"/>
+  <text x="620" y="442" font-family="Arial" font-size="16" font-weight="bold" fill="white">Confirm Reservation</text>
+</svg>
