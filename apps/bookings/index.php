@@ -3,9 +3,8 @@
  * Restaurant Booking System
  * @author Afzal Khan
  */
-$conn = new mysqli("localhost", "root", "");
-$conn->query("CREATE DATABASE IF NOT EXISTS booking_system_db");
-$conn->select_db("booking_system_db");
+$conn = new mysqli("sql112.infinityfree.com", "if0_40964515", "khan4483com", "if0_40964515_my_portfolio_db");
+
 
 $conn->query("CREATE TABLE IF NOT EXISTS time_slots (
     id INT AUTO_INCREMENT PRIMARY KEY,

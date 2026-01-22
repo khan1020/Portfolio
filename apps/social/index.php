@@ -4,9 +4,8 @@
  * @author Afzal Khan
  */
 session_start();
-$conn = new mysqli("localhost", "root", "");
-$conn->query("CREATE DATABASE IF NOT EXISTS social_media_db");
-$conn->select_db("social_media_db");
+$conn = new mysqli("sql112.infinityfree.com", "if0_40964515", "khan4483com", "if0_40964515_my_portfolio_db");
+
 
 $conn->query("CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,

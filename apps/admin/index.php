@@ -3,9 +3,8 @@
  * Admin Dashboard - Analytics & Management
  * @author Afzal Khan
  */
-$conn = new mysqli("localhost", "root", "");
-$conn->query("CREATE DATABASE IF NOT EXISTS admin_dashboard_db");
-$conn->select_db("admin_dashboard_db");
+$conn = new mysqli("sql112.infinityfree.com", "if0_40964515", "khan4483com", "if0_40964515_my_portfolio_db");
+
 
 $conn->query("CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), role VARCHAR(50), status VARCHAR(20), created_at DATE)");
 $conn->query("CREATE TABLE IF NOT EXISTS orders (id INT AUTO_INCREMENT PRIMARY KEY, customer VARCHAR(100), amount DECIMAL(10,2), status VARCHAR(20), created_at DATE)");
