@@ -1,23 +1,9 @@
 <?php
-/**
- * Authentication System - Database & Functions
- * @author Afzal Khan
- */
 session_start();
 
-$conn = new mysqli("localhost", "root", "", "auth_system_db");
+$conn = new mysqli("sql112.infinityfree.com", "if0_40964515", "khan4483com", "if0_40964515_my_portfolio_db");
 if ($conn->connect_error) {
-    $conn = new mysqli("localhost", "root", "");
-    $conn->query("CREATE DATABASE IF NOT EXISTS auth_system_db");
-    $conn->select_db("auth_system_db");
-    
-    $sql = file_get_contents(__DIR__ . '/../database.sql');
-    if ($conn->multi_query($sql)) {
-        do { if ($r = $conn->store_result()) $r->free(); } 
-        while ($conn->more_results() && $conn->next_result());
-    }
-    $conn->close();
-    $conn = new mysqli("localhost", "root", "", "auth_system_db");
+    die("Connection failed: " . $conn->connect_error);
 }
 
 function e($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
