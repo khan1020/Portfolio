@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager | Afzal Khan Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        .stat-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1f2937;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+        }
+
+        .task-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background 0.2s;
+        }
+
+        .task-item:hover {
+            background: #f9fafb;
+        }
+
+        .task-item.completed {
+            opacity: 0.6;
+        }
+
+        .task-item.completed .task-title {
+            text-decoration: line-through;
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .task-checkbox.checked {
+            background: #10b981;
+            border-color: #10b981;
+            color: white;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .task-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge.high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge.medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge.low {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .task-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            color: #9ca3af;
+        }
+
+        .task-actions button:hover {
+            color: #ef4444;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 50px;
+            color: #6b7280;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo"><i class="fas fa-tasks"></i> TaskMaster</div>
+        <a href="../../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Portfolio</a>
+    </header>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <h3 id="totalTasks">0</h3>
+                <p>Total Tasks</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="completedTasks">0</h3>
+                <p>Completed</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="pendingTasks">0</h3>
+                <p>Pending</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="highPriority">0</h3>
+                <p>High Priority</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-plus-circle"></i> Add New Task</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label>Task Title *</label>
+                    <input type="text" id="taskTitle" placeholder="What needs to be done?" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="taskDesc" rows="2" placeholder="Add details..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select id="taskPriority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" id="taskDue">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Task</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-list-check"></i> My Tasks</h2>
+            <div class="task-list" id="taskList"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize with sample data if empty
+        const defaultTasks = [
+            { id: 1, title: 'Complete portfolio design', desc: 'Finalize all sections', priority: 'high', due: '', completed: false, created: Date.now() },
+            { id: 2, title: 'Review client feedback', desc: 'Check emails', priority: 'medium', due: '', completed: true, created: Date.now() },
+            { id: 3, title: 'Team meeting at 3 PM', desc: 'Prepare slides', priority: 'medium', due: '', completed: false, created: Date.now() },
+            { id: 4, title: 'Buy groceries', desc: 'Milk, eggs, bread', priority: 'low', due: '', completed: false, created: Date.now() }
+        ];
+
+        let tasks = JSON.parse(localStorage.getItem('portfolio_tasks')) || defaultTasks;
+
+        function saveTasks() {
+            localStorage.setItem('portfolio_tasks', JSON.stringify(tasks));
+        }
+
+        function renderTasks() {
+            const list = document.getElementById('taskList');
+            const total = tasks.length;
+            const completed = tasks.filter(t => t.completed).length;
+            const pending = tasks.filter(t => !t.completed).length;
+            const highP = tasks.filter(t => t.priority === 'high' && !t.completed).length;
+
+            document.getElementById('totalTasks').textContent = total;
+            document.getElementById('completedTasks').textContent = completed;
+            document.getElementById('pendingTasks').textContent = pending;
+            document.getElementById('highPriority').textContent = highP;
+
+            if (tasks.length === 0) {
+                list.innerHTML = '<div class="empty-state"><i class="fas fa-clipboard-list"></i><h3>No tasks yet</h3><p>Add your first task above!</p></div>';
+                return;
+            }
+
+            list.innerHTML = tasks.sort((a, b) => a.completed - b.completed).map(task => `
+                <div class="task-item ${task.completed ? 'completed' : ''}">
+                    <div class="task-checkbox ${task.completed ? 'checked' : ''}" onclick="toggleTask(${task.id})">
+                        ${task.completed ? '<i class="fas fa-check"></i>' : ''}
+                    </div>
+                    <div class="task-content">
+                        <div class="task-title">${task.title}</div>
+                        <div class="task-meta">
+                            <span class="badge ${task.priority}">${task.priority}</span>
+                            ${task.due ? `<span><i class="fas fa-calendar"></i> ${task.due}</span>` : ''}
+                            ${task.desc ? `<span><i class="fas fa-align-left"></i> ${task.desc.substring(0, 30)}...</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button onclick="deleteTask(${task.id})"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleTask(id) {
+            tasks = tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+            saveTasks();
+            renderTasks();
+        }
+
+        function deleteTask(id) {
+            if (confirm('Delete this task?')) {
+                tasks = tasks.filter(t => t.id !== id);
+                saveTasks();
+                renderTasks();
+            }
+        }
+
+        document.getElementById('taskForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const newTask = {
+                id: Date.now(),
+                title: document.getElementById('taskTitle').value,
+                desc: document.getElementById('taskDesc').value,
+                priority: document.getElementById('taskPriority').value,
+                due: document.getElementById('taskDue').value,
+                completed: false,
+                created: Date.now()
+            };
+            tasks.unshift(newTask);
+            saveTasks();
+            renderTasks();
+            this.reset();
+        });
+
+        renderTasks();
+    </script>
+</body>
+
+</html>

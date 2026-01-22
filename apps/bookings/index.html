@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TableBook - Restaurant Reservations</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #faf5f0;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .date-selector {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .date-btn {
+            padding: 15px 20px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            min-width: 80px;
+            transition: all 0.2s;
+        }
+
+        .date-btn:hover,
+        .date-btn.active {
+            border-color: #d4a574;
+            background: #d4a574;
+            color: white;
+        }
+
+        .date-btn .day {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .date-btn.active .day {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .date-btn .num {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .slot-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .slot-card:hover {
+            border-color: #d4a574;
+            transform: translateY(-2px);
+        }
+
+        .slot-card.selected {
+            border-color: #d4a574;
+            background: #fef7f0;
+        }
+
+        .slot-card.unavailable {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slot-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .slot-avail {
+            font-size: 0.9rem;
+            color: #10b981;
+            margin-top: 5px;
+        }
+
+        .slot-avail.low {
+            color: #f59e0b;
+        }
+
+        .booking-form {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+
+        .booking-form.show {
+            display: block;
+        }
+
+        .booking-form h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #d4a574;
+            color: white;
+            width: 100%;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        .bookings-list {
+            margin-top: 30px;
+        }
+
+        .booking-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1><i class="fas fa-utensils"></i> TableBook</h1>
+        <p>Reserve your perfect dining experience</p>
+    </header>
+
+    <div class="container">
+        <div class="alert alert-success" id="successMsg" style="display:none;"><i class="fas fa-check-circle"></i>
+            Booking confirmed!</div>
+
+        <h2 style="margin-bottom: 15px;">Select a Date</h2>
+        <div class="date-selector" id="datePicker"></div>
+
+        <h2 style="margin-bottom: 15px;">Available Times</h2>
+        <div class="slots-grid" id="slotsGrid"></div>
+
+        <form class="booking-form" id="bookingForm" onsubmit="confirmBooking(event)">
+            <input type="hidden" id="selectedSlot">
+            <h3><i class="fas fa-calendar-check"></i> Complete Your Reservation</h3>
+            <p style="margin-bottom: 20px; color: #6b7280;">Selected time: <strong id="selectedTime"></strong></p>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="guestName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Party Size *</label>
+                    <select id="partySize">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="guestEmail" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="guestPhone" placeholder="+92 300 1234567">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Confirm Reservation</button>
+        </form>
+
+        <div class="bookings-list" id="bookingsList"></div>
+
+        <a href="../../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </div>
+
+    <script>
+        let bookings = JSON.parse(localStorage.getItem('portfolio_bookings')) || [];
+        let selectedDate = new Date().toISOString().split('T')[0];
+        const timeSlots = ['12:00', '13:00', '14:00', '18:00', '19:00', '20:00', '21:00'];
+
+        function saveBookings() { localStorage.setItem('portfolio_bookings', JSON.stringify(bookings)); }
+
+        function renderDates() {
+            const container = document.getElementById('datePicker');
+            container.innerHTML = '';
+            for (let i = 0; i < 7; i++) {
+                const date = new Date();
+                date.setDate(date.getDate() + i);
+                const dateStr = date.toISOString().split('T')[0];
+                const btn = document.createElement('div');
+                btn.className = 'date-btn' + (dateStr === selectedDate ? ' active' : '');
+                btn.innerHTML = `<div class="day">${date.toLocaleDateString('en', { weekday: 'short' })}</div><div class="num">${date.getDate()}</div>`;
+                btn.onclick = () => { selectedDate = dateStr; renderDates(); renderSlots(); };
+                container.appendChild(btn);
+            }
+        }
+
+        function renderSlots() {
+            const container = document.getElementById('slotsGrid');
+            container.innerHTML = timeSlots.map(time => {
+                const booked = bookings.filter(b => b.date === selectedDate && b.time === time).reduce((sum, b) => sum + b.party, 0);
+                const available = 4 - booked;
+                return `
+                    <div class="slot-card ${available <= 0 ? 'unavailable' : ''}" onclick="${available > 0 ? `selectSlot('${time}', ${available})` : ''}">
+                        <div class="slot-time">${formatTime(time)}</div>
+                        <div class="slot-avail ${available <= 2 ? 'low' : ''}">${available > 0 ? available + ' seats left' : 'Fully booked'}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function formatTime(time) {
+            const [h, m] = time.split(':');
+            return new Date(2000, 0, 1, h, m).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        }
+
+        function selectSlot(time, available) {
+            document.querySelectorAll('.slot-card').forEach(c => c.classList.remove('selected'));
+            event.target.closest('.slot-card').classList.add('selected');
+            document.getElementById('selectedSlot').value = time;
+            document.getElementById('selectedTime').textContent = formatTime(time);
+            document.getElementById('bookingForm').classList.add('show');
+            document.getElementById('bookingForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function confirmBooking(e) {
+            e.preventDefault();
+            const booking = {
+                id: Date.now(),
+                date: selectedDate,
+                time: document.getElementById('selectedSlot').value,
+                name: document.getElementById('guestName').value,
+                party: parseInt(document.getElementById('partySize').value),
+                email: document.getElementById('guestEmail').value,
+                phone: document.getElementById('guestPhone').value
+            };
+            bookings.push(booking);
+            saveBookings();
+            document.getElementById('successMsg').style.display = 'block';
+            document.getElementById('bookingForm').classList.remove('show');
+            document.getElementById('bookingForm').reset();
+            renderSlots();
+            renderBookings();
+            setTimeout(() => document.getElementById('successMsg').style.display = 'none', 3000);
+        }
+
+        function renderBookings() {
+            const myBookings = bookings.filter(b => b.date >= new Date().toISOString().split('T')[0]);
+            if (myBookings.length === 0) return;
+            document.getElementById('bookingsList').innerHTML = `
+                <h3 style="margin-bottom: 15px;"><i class="fas fa-list"></i> Your Reservations</h3>
+                ${myBookings.map(b => `
+                    <div class="booking-item">
+                        <div><strong>${b.name}</strong> - ${b.party} guests<br><small>${b.date} at ${formatTime(b.time)}</small></div>
+                        <button onclick="cancelBooking(${b.id})" style="background:#fee2e2;color:#991b1b;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;">Cancel</button>
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        function cancelBooking(id) {
+            if (confirm('Cancel this reservation?')) {
+                bookings = bookings.filter(b => b.id !== id);
+                saveBookings();
+                renderSlots();
+                renderBookings();
+            }
+        }
+
+        renderDates();
+        renderSlots();
+        renderBookings();
+    </script>
+</body>
+
+</html>
