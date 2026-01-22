@@ -16,7 +16,7 @@ A full-featured task management application with PHP/MySQL backend.
 ## 🚀 Quick Start
 
 1. **Start XAMPP** - Enable Apache and MySQL
-2. **Visit**: `http://localhost/Portfolio/demos/03-task-manager/`
+2. **Visit**: `http://localhost/Portfolio/apps/03-task-manager/`
 3. **Database** auto-creates with sample tasks
 
 ## 📁 Structure

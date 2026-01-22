@@ -33,7 +33,7 @@ A modern, fully-functional e-commerce product showcase built with PHP, MySQL, an
 
 3. **Visit the site**:
    ```
-   http://localhost/Portfolio/demos/01-ecommerce-product/
+   http://localhost/Portfolio/apps/01-ecommerce-product/
    ```
 
 4. **Database auto-creates** on first visit with sample products

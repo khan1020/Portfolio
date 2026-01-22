@@ -11,7 +11,7 @@ A modern blog platform with PHP/MySQL backend.
 
 ## Quick Start
 1. Start XAMPP (Apache + MySQL)
-2. Visit: `http://localhost/Portfolio/demos/04-blog-cms/`
+2. Visit: `http://localhost/Portfolio/apps/04-blog-cms/`
 3. Database auto-creates with sample posts
 
 ## Structure

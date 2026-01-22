@@ -47,7 +47,7 @@ portfolio/
 ├── js/main.js          # Interactivity
 ├── images/             # Assets
 ├── projects/           # Project detail pages
-└── demos/              # Working demos
+└── apps/              # Working demos
     ├── shop/
     ├── weather/
     ├── tasks/
@@ -63,3 +63,6 @@ portfolio/
 ---
 
 Built with ☕ in Hyderabad, Pakistan | © 2026
+
+
+<!-- v1.0 -->
