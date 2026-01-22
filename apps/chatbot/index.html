@@ -273,14 +273,13 @@
     <a href="../../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
 
     <script>
-        // Demo responses (in production, connect to OpenAI API)
         const responses = {
-            default: ["I understand. Could you tell me more?", "That's interesting! What else would you like to know?", "I'm here to help. Feel free to ask me anything!"],
-            greeting: ["Hello! How are you doing today?", "Hi there! Nice to meet you!", "Hey! What can I help you with?"],
+            default: ["hmm tell me more", "interesting! what else?", "got it, anything else?"],
+            greeting: ["hey! whats up?", "hi! how can i help?", "hey there!"],
             joke: ["Why do programmers prefer dark mode? Because light attracts bugs! 🐛", "Why did the developer go broke? Because he used up all his cache! 💰", "There are only 10 types of people in the world: those who understand binary and those who don't!"],
-            what: ["I'm an AI assistant demo. I can answer questions, tell jokes, and have conversations. In a real implementation, I'd be connected to OpenAI's GPT API for intelligent responses!", "I can help with coding questions, general knowledge, or just chat! This is a demo version - connect me to OpenAI for real AI power."],
-            coding: ["I love coding! What language are you working with? I can help with JavaScript, Python, PHP, and more.", "Need coding help? Tell me about your project or paste some code, and I'll do my best to assist!"],
-            thanks: ["You're welcome! Glad I could help! 😊", "Anytime! Feel free to ask more questions.", "Happy to help! Is there anything else you need?"]
+            what: ["I can answer questions, tell jokes, help with code stuff. try me!", "ask me anything - coding, random questions, whatever you want."],
+            coding: ["nice! what language? i know js, python, php and more", "show me the code and i'll try to help!"],
+            thanks: ["np! 😊", "anytime!", "glad i could help!"]
         };
 
         function getResponse(input) {
@@ -343,4 +342,3 @@
 </body>
 
 </html>
-
