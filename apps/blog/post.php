@@ -8,13 +8,13 @@ require_once 'includes/db.php';
 if (!isset($_GET['slug'])) { header('Location: index.php'); exit; }
 
 $slug = $conn->real_escape_string($_GET['slug']);
-$result = $conn->query("SELECT p.*, c.name as category_name, c.id as category_id FROM posts p LEFT JOIN categories c ON p.category_id = c.id WHERE p.slug = '$slug' AND p.status = 'published'");
+$result = $conn->query("SELECT p.*, c.name as category_name, c.id as category_id FROM blog_posts p LEFT JOIN blog_categories c ON p.category_id = c.id WHERE p.slug = '$slug' AND p.status = 'published'");
 
 if ($result->num_rows == 0) { header('Location: index.php'); exit; }
 $post = $result->fetch_assoc();
 
 // Increment views
-$conn->query("UPDATE posts SET views = views + 1 WHERE id = " . $post['id']);
+$conn->query("UPDATE blog_posts SET views = views + 1 WHERE id = " . $post['id']);
 
 // Handle comment submission
 $comment_msg = '';
@@ -23,16 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_comment'])) {
     $email = $conn->real_escape_string(trim($_POST['email']));
     $content = $conn->real_escape_string(trim($_POST['content']));
     if ($name && $content) {
-        $conn->query("INSERT INTO comments (post_id, author_name, author_email, content, status) VALUES ({$post['id']}, '$name', '$email', '$content', 'approved')");
+        $conn->query("INSERT INTO blog_comments (post_id, author_name, author_email, content, status) VALUES ({$post['id']}, '$name', '$email', '$content', 'approved')");
         $comment_msg = 'Comment added!';
     }
 }
 
 // Get comments
-$comments = $conn->query("SELECT * FROM comments WHERE post_id = {$post['id']} AND status = 'approved' ORDER BY created_at DESC");
+$comments = $conn->query("SELECT * FROM blog_comments WHERE post_id = {$post['id']} AND status = 'approved' ORDER BY created_at DESC");
 
 // Related posts
-$related = $conn->query("SELECT id, title, slug, featured_image FROM posts WHERE category_id = {$post['category_id']} AND id != {$post['id']} AND status = 'published' LIMIT 3");
+$related = $conn->query("SELECT id, title, slug, featured_image FROM blog_posts WHERE category_id = {$post['category_id']} AND id != {$post['id']} AND status = 'published' LIMIT 3");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,3 +144,6 @@ $related = $conn->query("SELECT id, title, slug, featured_image FROM posts WHERE
     </footer>
 </body>
 </html>
+
+
+

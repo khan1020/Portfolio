@@ -125,11 +125,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pay'])) {
                     <form method="POST">
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" name="email" required placeholder="you@example.com">
+                            <input type="email" name="email" required placeholder="email here">
                         </div>
                         <div class="form-group">
                             <label>Name on Card</label>
-                            <input type="text" name="name" required placeholder="John Doe">
+                            <input type="text" name="name" required placeholder="your name">
                         </div>
                         <div class="form-group">
                             <label>Card Details</label>
@@ -168,3 +168,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pay'])) {
     </div>
 </body>
 </html>
+

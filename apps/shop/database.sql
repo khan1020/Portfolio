@@ -17,3 +17,17 @@ INSERT INTO products (name, description, price, image_url, stock) VALUES
 ('Zenith 65% Brass', 'Heavy brass weight, gasket mounted 65% keyboard kit. Anodized aluminum case in Deep Navy.', 189.50, 'https://images.unsplash.com/photo-1626218174397-91aee348c4cf?w=600&h=600&fit=crop', 10),
 ('Nebula Resin Keycaps', 'Hand-cast artisan keycap set with galaxy swirls and gold flakes. Cherry profile, 120 keys.', 85.00, 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=600&h=600&fit=crop', 20),
 ('Stealth Ops Deskmat', 'Water-resistant, high-density cloth deskmat. 900x400mm. Stealth black geometric pattern.', 24.99, 'https://images.unsplash.com/photo-1615663245857-acda847f842b?w=600&h=600&fit=crop', 50);
+
+-- Orders table for checkout functionality
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(50),
+    customer_address TEXT,
+    customer_city VARCHAR(100),
+    order_total DECIMAL(10,2),
+    cart_items TEXT,
+    status ENUM('pending', 'processing', 'shipped', 'delivered') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

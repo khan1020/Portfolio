@@ -9,7 +9,7 @@ require_once '../includes/db.php';
 $msg = '';
 if (isset($_GET['delete'])) {
     $id = (int)$_GET['delete'];
-    if ($conn->query("DELETE FROM posts WHERE id = $id")) $msg = 'Post deleted!';
+    if ($conn->query("DELETE FROM blog_posts WHERE id = $id")) $msg = 'Post deleted!';
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (!empty($_POST['post_id'])) {
         $id = (int)$_POST['post_id'];
-        $conn->query("UPDATE posts SET title='$title', slug='$postSlug', content='$content', excerpt='$excerpt', featured_image='$image', category_id=$cat, status='$status' WHERE id=$id");
+        $conn->query("UPDATE blog_posts SET title='$title', slug='$postSlug', content='$content', excerpt='$excerpt', featured_image='$image', category_id=$cat, status='$status' WHERE id=$id");
         $msg = 'Post updated!';
     } else {
-        $conn->query("INSERT INTO posts (title, slug, content, excerpt, featured_image, category_id, status) VALUES ('$title', '$postSlug', '$content', '$excerpt', '$image', $cat, '$status')");
+        $conn->query("INSERT INTO blog_posts (title, slug, content, excerpt, featured_image, category_id, status) VALUES ('$title', '$postSlug', '$content', '$excerpt', '$image', $cat, '$status')");
         $msg = 'Post created!';
     }
 }
@@ -34,11 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $editPost = null;
 if (isset($_GET['edit'])) {
     $id = (int)$_GET['edit'];
-    $editPost = $conn->query("SELECT * FROM posts WHERE id = $id")->fetch_assoc();
+    $editPost = $conn->query("SELECT * FROM blog_posts WHERE id = $id")->fetch_assoc();
 }
 
-$posts = $conn->query("SELECT p.*, c.name as category_name FROM posts p LEFT JOIN categories c ON p.category_id = c.id ORDER BY p.created_at DESC");
-$categories = $conn->query("SELECT * FROM categories ORDER BY name");
+$posts = $conn->query("SELECT p.*, c.name as category_name FROM blog_posts p LEFT JOIN blog_categories c ON p.category_id = c.id ORDER BY p.created_at DESC");
+$categories = $conn->query("SELECT * FROM blog_categories ORDER BY name");
 $catList = []; while ($c = $categories->fetch_assoc()) $catList[] = $c;
 ?>
 <!DOCTYPE html>
@@ -154,3 +154,6 @@ $catList = []; while ($c = $categories->fetch_assoc()) $catList[] = $c;
     </div>
 </body>
 </html>
+
+
+

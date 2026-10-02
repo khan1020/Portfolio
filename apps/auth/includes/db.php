@@ -41,3 +41,4 @@ function requireLogin() { if (!isLoggedIn()) { header('Location: login.php'); ex
 function requireGuest() { if (isLoggedIn()) { header('Location: dashboard.php'); exit; } }
 function generateToken($length = 32) { return bin2hex(random_bytes($length)); }
 ?>
+

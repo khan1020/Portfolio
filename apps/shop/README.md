@@ -38,6 +38,14 @@ A modern, fully-functional e-commerce product showcase built with PHP, MySQL, an
 
 4. **Database auto-creates** on first visit with sample products
 
+### InfinityFree Deployment
+
+For InfinityFree or other shared hosting:
+
+1. **Create database tables manually** via phpMyAdmin using `database.sql`
+2. **Update connection** in `includes/db.php` with your hosting credentials
+3. The `db.php` file auto-detects local vs production environments
+
 ## 📁 Project Structure
 
 ```

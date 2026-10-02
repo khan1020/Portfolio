@@ -33,29 +33,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
     $total = floatval($_POST['order_total']);
     
     if (!empty($name) && !empty($email) && !empty($address)) {
-        // Create orders table if not exists
-        $conn->query("CREATE TABLE IF NOT EXISTS orders (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            customer_name VARCHAR(255) NOT NULL,
-            customer_email VARCHAR(255) NOT NULL,
-            customer_phone VARCHAR(50),
-            customer_address TEXT,
-            customer_city VARCHAR(100),
-            order_total DECIMAL(10,2),
-            cart_items TEXT,
-            status ENUM('pending', 'processing', 'shipped', 'delivered') DEFAULT 'pending',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )");
+        // Note: orders table must be created via phpMyAdmin on InfinityFree
+        // See database.sql for table structure
         
         // Insert order
         $stmt = $conn->prepare("INSERT INTO orders (customer_name, customer_email, customer_phone, customer_address, customer_city, order_total, cart_items) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssds", $name, $email, $phone, $address, $city, $total, $cart_data);
-        
-        if ($stmt->execute()) {
-            $order_id = $conn->insert_id;
-            $order_placed = true;
+        if ($stmt) {
+            $stmt->bind_param("sssssds", $name, $email, $phone, $address, $city, $total, $cart_data);
+            
+            if ($stmt->execute()) {
+                $order_id = $conn->insert_id;
+                $order_placed = true;
+            }
+            $stmt->close();
+        } else {
+            // Table might not exist - show user-friendly error
+            $error_message = "Unable to process order. Please contact support.";
         }
-        $stmt->close();
     }
 }
 ?>
@@ -370,6 +364,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
                      ============================================================= -->
                 <div class="checkout-container">
                     <div class="checkout-form">
+                        <?php if (isset($error_message)): ?>
+                            <div style="background: #fee2e2; color: #991b1b; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #fecaca;">
+                                <i class="fas fa-exclamation-circle"></i> <?php echo $error_message; ?>
+                            </div>
+                        <?php endif; ?>
                         <h2><i class="fas fa-user"></i> Customer Information</h2>
                         
                         <form method="POST" id="checkoutForm">
@@ -377,13 +376,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
                                 <div class="form-group">
                                     <label for="customer_name">Full Name <span>*</span></label>
                                     <input type="text" id="customer_name" name="customer_name" required
-                                           placeholder="John Doe">
+                                           placeholder="your full name">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="customer_email">Email <span>*</span></label>
                                     <input type="email" id="customer_email" name="customer_email" required
-                                           placeholder="john@example.com">
+                                           placeholder="email here">
                                 </div>
                             </div>
                             
@@ -502,7 +501,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
                 itemsHTML += `
                     <div class="order-item">
                         <img src="${item.image}" alt="${item.name}" 
-                             onerror="this.src='https://via.placeholder.com/60'">
+                             onerror="this.src='https://placehold.co/60'">
                         <div class="order-item-details">
                             <div class="order-item-name">${item.name}</div>
                             <div class="order-item-meta">
@@ -525,3 +524,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
     </script>
 </body>
 </html>
+

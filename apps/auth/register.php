@@ -72,11 +72,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form method="POST" class="auth-form">
                 <div class="form-group">
                     <label><i class="fas fa-user"></i> Full Name</label>
-                    <input type="text" name="full_name" placeholder="John Doe" value="<?php echo isset($fullName) ? e($fullName) : ''; ?>">
+                    <input type="text" name="full_name" placeholder="your full name" value="<?php echo isset($fullName) ? e($fullName) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label><i class="fas fa-at"></i> Username *</label>
-                    <input type="text" name="username" required placeholder="johndoe" value="<?php echo isset($username) ? e($username) : ''; ?>">
+                    <input type="text" name="username" required placeholder="username here" value="<?php echo isset($username) ? e($username) : ''; ?>">
                 </div>
                 <div class="form-group">
                     <label><i class="fas fa-envelope"></i> Email *</label>
@@ -103,3 +103,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 </html>
+

@@ -21,7 +21,7 @@
                     <a href="index.php" class="nav-link">Home</a>
                     <a href="#" class="nav-link">Keyboards</a>
                     <a href="#" class="nav-link">Keycaps</a>
-                    <a href="admin/add-product.php" class="nav-link" style="color: #2563eb;"><i class="fas fa-cog"></i> Admin</a>
+                    <a href="admin/index.php" class="nav-link" style="color: #2563eb;"><i class="fas fa-cog"></i> Admin</a>
                 </div>
                 <div class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-cart"></i>
@@ -54,14 +54,18 @@
 
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
+                        $name = htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8');
+                        $image = htmlspecialchars($row['image_url'], ENT_QUOTES, 'UTF-8');
+                        $price = number_format($row['price'], 2);
+                        $id = (int)$row['id'];
                         echo '
                         <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                            <a href="product.php?id='.$row['id'].'" style="text-decoration: none; color: inherit;">
-                                <img src="'.$row['image_url'].'" alt="'.$row['name'].'" style="width: 100%; height: 250px; object-fit: cover;">
+                            <a href="product.php?id='.$id.'" style="text-decoration: none; color: inherit;">
+                                <img src="'.$image.'" alt="'.$name.'" style="width: 100%; height: 250px; object-fit: cover;" onerror="this.src=\'https://placehold.co/280x250\'">
                                 <div style="padding: 20px;">
-                                    <h3 style="font-size: 1.25rem; margin-bottom: 10px;">'.$row['name'].'</h3>
+                                    <h3 style="font-size: 1.25rem; margin-bottom: 10px;">'.$name.'</h3>
                                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                                        <span style="font-weight: 700; color: #2563eb; font-size: 1.1rem;">$'.$row['price'].'</span>
+                                        <span style="font-weight: 700; color: #2563eb; font-size: 1.1rem;">$'.$price.'</span>
                                         <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.9rem;">View Details</button>
                                     </div>
                                 </div>
@@ -83,7 +87,24 @@
             <p>&copy; 2026 NeoMech Keyboards. Built by Afzal Khan.</p>
         </div>
     </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Total:</span> <span id="cartTotal">$0.00</span></div>
+            <button class="btn btn-primary btn-block" onclick="proceedToCheckout()">
+                <i class="fas fa-lock"></i> Checkout
+            </button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
     
     <script src="js/app.js"></script>
 </body>
 </html>
+

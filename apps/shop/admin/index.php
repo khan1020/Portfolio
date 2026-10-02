@@ -511,7 +511,7 @@ $products = $conn->query("SELECT * FROM products ORDER BY id DESC");
                                         <img src="<?php echo htmlspecialchars($product['image_url']); ?>" 
                                              alt="<?php echo htmlspecialchars($product['name']); ?>"
                                              class="product-image"
-                                             onerror="this.src='https://via.placeholder.com/60'">
+                                             onerror="this.src='https://placehold.co/60'">
                                     </td>
                                     <td>
                                         <strong><?php echo htmlspecialchars($product['name']); ?></strong>
@@ -525,7 +525,7 @@ $products = $conn->query("SELECT * FROM products ORDER BY id DESC");
                                     </td>
                                     <td>
                                         <?php
-                                        $stock = $product['stock'];
+                                        $stock = $product['stock'] ?? 0;
                                         $stockClass = $stock > 5 ? 'stock-in' : ($stock > 0 ? 'stock-low' : 'stock-out');
                                         $stockText = $stock > 5 ? "In Stock ({$stock})" : ($stock > 0 ? "Low ({$stock})" : "Out of Stock");
                                         ?>
@@ -569,3 +569,4 @@ $products = $conn->query("SELECT * FROM products ORDER BY id DESC");
     </footer>
 </body>
 </html>
+

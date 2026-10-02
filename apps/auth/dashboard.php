@@ -70,3 +70,4 @@ $user = getCurrentUser();
     </main>
 </body>
 </html>
+

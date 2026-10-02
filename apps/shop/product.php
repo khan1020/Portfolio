@@ -6,22 +6,38 @@ if (!isset($_GET['id'])) {
     exit();
 }
 
-$id = $conn->real_escape_string($_GET['id']);
-$sql = "SELECT * FROM products WHERE id = $id";
-$result = $conn->query($sql);
+$id = (int)$_GET['id'];
+if ($id <= 0) {
+    header("Location: index.php");
+    exit();
+}
+
+$stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows == 0) {
-    die("Product not found");
+    header("Location: index.php");
+    exit();
 }
 
 $product = $result->fetch_assoc();
+$stmt->close();
+
+// Sanitize for output
+$productName = htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8');
+$productDesc = htmlspecialchars($product['description'] ?? '', ENT_QUOTES, 'UTF-8');
+$productImage = htmlspecialchars($product['image_url'] ?? '', ENT_QUOTES, 'UTF-8');
+$productPrice = number_format($product['price'], 2);
+$productStock = (int)($product['stock'] ?? 0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $product['name']; ?> | NeoMech</title>
+    <title><?php echo $productName; ?> | NeoMech</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -34,7 +50,7 @@ $product = $result->fetch_assoc();
                 <div class="nav-links">
                     <a href="index.php" class="nav-link">Home</a>
                     <a href="#" class="nav-link">About</a>
-                    <a href="admin/add-product.php" class="nav-link" style="color: #2563eb;">Admin Panel</a>
+                    <a href="admin/index.php" class="nav-link" style="color: #2563eb;">Admin Panel</a>
                 </div>
                 <div class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-cart"></i>
@@ -52,22 +68,26 @@ $product = $result->fetch_assoc();
                 <!-- Image -->
                 <div class="product-gallery">
                     <div class="main-image">
-                        <img id="mainImage" src="<?php echo $product['image_url']; ?>" alt="<?php echo $product['name']; ?>">
+                        <img id="mainImage" src="<?php echo $productImage; ?>" alt="<?php echo $productName; ?>" onerror="this.src='https://placehold.co/600x600'">
                     </div>
                 </div>
 
                 <!-- Details -->
                 <div class="product-details">
                     <div class="product-category">Custom Mechanical</div>
-                    <h1 class="product-title"><?php echo $product['name']; ?></h1>
+                    <h1 class="product-title"><?php echo $productName; ?></h1>
                     
                     <div class="product-price">
-                        <span class="current-price">$<?php echo $product['price']; ?></span>
-                        <span class="stock-badge" style="background: #10b981; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">In Stock</span>
+                        <span class="current-price">$<?php echo $productPrice; ?></span>
+                        <?php if ($productStock > 0): ?>
+                            <span class="stock-badge" style="background: #10b981; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">In Stock (<?php echo $productStock; ?>)</span>
+                        <?php else: ?>
+                            <span class="stock-badge" style="background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; margin-left: 10px;">Out of Stock</span>
+                        <?php endif; ?>
                     </div>
 
                     <p class="product-description">
-                        <?php echo $product['description']; ?>
+                        <?php echo $productDesc; ?>
                     </p>
 
                     <div class="product-options">
@@ -92,7 +112,7 @@ $product = $result->fetch_assoc();
                     </div>
 
                     <div class="product-actions">
-                        <button class="btn btn-primary" onclick="addToCartDynamic(<?php echo $product['id']; ?>, '<?php echo addslashes($product['name']); ?>', <?php echo $product['price']; ?>, '<?php echo $product['image_url']; ?>')">
+                        <button class="btn btn-primary" onclick="addToCartDynamic(<?php echo $id; ?>, '<?php echo addslashes($productName); ?>', <?php echo $product['price']; ?>, '<?php echo addslashes($productImage); ?>')">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
                     </div>
@@ -151,3 +171,4 @@ $product = $result->fetch_assoc();
     </script>
 </body>
 </html>
+

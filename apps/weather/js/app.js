@@ -176,8 +176,8 @@ async function fetchWeatherData(city) {
     showLoading();
 
     try {
-        // Fetch current weather
-        const currentUrl = `${CONFIG.BASE_URL}/weather?q=${encodeURIComponent(city)}&units=${CONFIG.UNITS}&appid=${CONFIG.API_KEY}`;
+        // Use PHP proxy to hide API key
+        const currentUrl = `api.php?type=weather&city=${encodeURIComponent(city)}`;
         const currentResponse = await fetch(currentUrl);
 
         if (!currentResponse.ok) {
@@ -187,7 +187,7 @@ async function fetchWeatherData(city) {
         const currentData = await currentResponse.json();
 
         // Fetch 5-day forecast
-        const forecastUrl = `${CONFIG.BASE_URL}/forecast?q=${encodeURIComponent(city)}&units=${CONFIG.UNITS}&appid=${CONFIG.API_KEY}`;
+        const forecastUrl = `api.php?type=forecast&city=${encodeURIComponent(city)}`;
         const forecastResponse = await fetch(forecastUrl);
         const forecastData = await forecastResponse.json();
 
@@ -215,13 +215,13 @@ async function fetchWeatherData(city) {
  */
 async function fetchWeatherByCoords(lat, lon) {
     try {
-        // Fetch current weather
-        const currentUrl = `${CONFIG.BASE_URL}/weather?lat=${lat}&lon=${lon}&units=${CONFIG.UNITS}&appid=${CONFIG.API_KEY}`;
+        // Use PHP proxy with coordinates
+        const currentUrl = `api.php?type=weather&lat=${lat}&lon=${lon}`;
         const currentResponse = await fetch(currentUrl);
         const currentData = await currentResponse.json();
 
         // Fetch 5-day forecast
-        const forecastUrl = `${CONFIG.BASE_URL}/forecast?lat=${lat}&lon=${lon}&units=${CONFIG.UNITS}&appid=${CONFIG.API_KEY}`;
+        const forecastUrl = `api.php?type=forecast&lat=${lat}&lon=${lon}`;
         const forecastResponse = await fetch(forecastUrl);
         const forecastData = await forecastResponse.json();
 

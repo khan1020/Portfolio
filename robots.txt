@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://afzalkhan1020.infinityfree.me/sitemap.xml

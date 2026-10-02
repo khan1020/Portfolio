@@ -49,14 +49,14 @@ if ($isLocal) {
     )");
     
     // Add sample data if empty
-    if ($conn->query("SELECT COUNT(*) as c FROM categories")->fetch_assoc()['c'] == 0) {
-        $conn->query("INSERT INTO categories (name, slug, description) VALUES 
+    if ($conn->query("SELECT COUNT(*) as c FROM blog_categories")->fetch_assoc()['c'] == 0) {
+        $conn->query("INSERT INTO blog_categories (name, slug, description) VALUES 
             ('Technology', 'technology', 'Tech news'),
             ('Programming', 'programming', 'Coding tips'),
             ('Web Development', 'web-development', 'Frontend and backend')");
     }
-    if ($conn->query("SELECT COUNT(*) as c FROM posts")->fetch_assoc()['c'] == 0) {
-        $conn->query("INSERT INTO posts (title, slug, content, excerpt, featured_image, category_id, status, views) VALUES 
+    if ($conn->query("SELECT COUNT(*) as c FROM blog_posts")->fetch_assoc()['c'] == 0) {
+        $conn->query("INSERT INTO blog_posts (title, slug, content, excerpt, featured_image, category_id, status, views) VALUES 
             ('Getting Started with PHP 8', 'getting-started-php-8', '<p>PHP 8 brings exciting features.</p>', 'Discover PHP 8 features', 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800', 2, 'published', 245),
             ('Building REST APIs', 'building-rest-apis', '<p>REST APIs are essential.</p>', 'Learn REST API development', 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800', 3, 'published', 189)");
     }
@@ -82,3 +82,6 @@ function timeAgo($datetime) {
     return date('M j, Y', $time);
 }
 ?>
+
+
+

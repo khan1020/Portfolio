@@ -11,10 +11,10 @@ $where = "WHERE p.status = 'published'";
 if ($category_filter) $where .= " AND p.category_id = $category_filter";
 
 $posts = $conn->query("SELECT p.*, c.name as category_name, c.slug as category_slug,
-    (SELECT COUNT(*) FROM comments WHERE post_id = p.id AND status = 'approved') as comment_count
-    FROM posts p LEFT JOIN categories c ON p.category_id = c.id $where ORDER BY p.created_at DESC");
+    (SELECT COUNT(*) FROM blog_comments WHERE post_id = p.id AND status = 'approved') as comment_count
+    FROM blog_posts p LEFT JOIN blog_categories c ON p.category_id = c.id $where ORDER BY p.created_at DESC");
 
-$categories = $conn->query("SELECT c.*, (SELECT COUNT(*) FROM posts WHERE category_id = c.id AND status = 'published') as post_count FROM categories c ORDER BY name");
+$categories = $conn->query("SELECT c.*, (SELECT COUNT(*) FROM blog_posts WHERE category_id = c.id AND status = 'published') as post_count FROM blog_categories c ORDER BY name");
 $catList = []; while ($c = $categories->fetch_assoc()) $catList[] = $c;
 ?>
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ $catList = []; while ($c = $categories->fetch_assoc()) $catList[] = $c;
                                 <article class="post-card">
                                     <a href="post.php?slug=<?php echo e($post['slug']); ?>" class="post-image">
                                         <img src="<?php echo e($post['featured_image']); ?>" alt="<?php echo e($post['title']); ?>"
-                                             onerror="this.src='https://via.placeholder.com/400x250?text=No+Image'">
+                                             onerror="this.src='https://placehold.co/400x250?text=No+Image'">
                                     </a>
                                     <div class="post-content">
                                         <?php if ($post['category_name']): ?>
@@ -119,3 +119,6 @@ $catList = []; while ($c = $categories->fetch_assoc()) $catList[] = $c;
     </footer>
 </body>
 </html>
+
+
+
